@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <h1 class="text-center">
+        Realiza tus Aportaciones Voluntarias
+    </h1>
+
+    <div id="accordion">
+
+        <h3>Paso 1 - Tipo de aportación</h3>
+        <div id="step-0">
+
+            <div class="loader-accordion"></div>
+
+            <div id="contribution-type" tiles:include="contribution-type"></div>
+
+            <p class="text-center">
+                <button id="btn-contribution-type" class="normal btn-step-accordion" disabled="disabled"
+                        data-container-validation="contribution-type"
+                        data-step="next"
+                        data-steps="2"
+                        data-event-id="loadDetailStep"
+                        data-fragment-render="detail"
+                        data-fragment-container="detail">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3 class="display-none tab-bank-account">Agregar cuenta bancaria</h3>
+        <div id="step-1">
+
+            <div class="loader-accordion"></div>
+
+            <div id="bank-account" tiles:include="bank-account"></div>
+
+            <p class="text-center">
+                <button class="normal btn-step-accordion"
+                        data-step="back"
+                        data-back-view="contribution-type">Atrás</button>
+                <button id="btn-next-bank-account"
+                        class="normal btn-step-accordion validate"
+                        disabled="disabled"
+                        data-container-validation="bank-account"
+                        data-validate-enable="required"
+                        data-step="next"
+                        data-event-id="loadDetailStep"
+                        data-fragment-container="detail"
+                        data-fragment-render="detail">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 2 - Detalle de aportaci&oacute;n</h3>
+        <div id="step-2">
+
+            <div class="loader-accordion"></div>
+
+            <div id="detail" tiles:include="detail"></div>
+
+            <p class="text-center clear-both">
+                <button class="normal btn-step-accordion" data-step="back"
+                        data-back-view="bank-account"
+                        data-steps="1">Atrás</button>
+                <button id="btn-next-detail" class="normal"
+                        data-step="next"
+                        data-event-id="loadResumeStep"
+                        data-fragment-container="resume"
+                        data-fragment-render="resume">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 3 - Resumen de aportación</h3>
+        <div id="step-3">
+
+            <div class="loader-accordion"></div>
+
+            <div id="resume" tiles:include="resume"></div>
+
+            <p class="text-center clear-both">
+                <button class="normal btn-step-accordion" data-step="back">Atrás</button>
+                <button class="confirm btn-confirmation" data-step="next"
+                        data-event-id="loadConfirmationStep"
+                        data-fragment-container="confirmation"
+                        data-fragment-render="confirmation">Autorizar</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 4 - Aportación programada</h3>
+        <div id="step-4">
+
+            <div id="confirmation" tiles:include="confirmation"></div>
+
+            <p class="text-center clear-both">
+                <button id="lnk-my-account" class="confirm yellow width-auto">Ir a la página principal</button>
+                <br/>
+                <a id="lnk-consult-contributions">Consultar mis Aportaciones Voluntarias</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <input type="hidden" id="view" value="diversification"/>
+
+</th:block>
+
+</body>
+</html>

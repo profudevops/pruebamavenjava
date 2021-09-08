@@ -1,0 +1,38 @@
+// Reports list
+.reports-list {
+  margin: rem(-10px);
+  flex-wrap: wrap;
+
+  a {
+    flex: 0 0 calc(33.3334% - 20px);
+    width: calc(33.3334% - 20px);
+    height: rem(150px);
+    margin: rem(10px);
+    align-items: center;
+    background: $grey;
+    font-size: rem(14px);
+    line-height: rem(19px);
+    font-weight: 600;
+    color: $semi-black;
+    transition: background 0.35s;
+
+    span {
+      display: block;
+      width: 100%;
+      padding: rem(20px);
+      text-align: center;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background: darken($grey, 5%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    a {
+      flex: 0 0 calc(100% - 20px);
+      width: calc(100% - 20px);
+    }
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+
+
+    <div class="info-modal">
+
+        <div class="apovol-info">
+
+            <div class="close-modal-apovol" id="close-modal-apovol"></div>
+
+            <div class="title">Aportaciones Voluntarias</div>
+
+            <div class="info-panel calendar-apovol">
+                Tú eliges el día, el monto y la frecuencia del cargo, así como los fondos donde quieres destinarlo y puedes modificarlas o darlas de baja en el momento que tú quieras.
+            </div>
+            <div class="info-panel combine-apovol">
+                Logras la constancia y el hábito de ahorro que necesitas para construir un buen patrimonio para conseguir un mejor futuro.
+            </div>
+            <div class="info-panel computer-apovol">
+                ¡Ahorras sin tener que ir a la sucursal! Puedes programar todas tus aportaciones desde tu computadora o celular para conseguir un mejor futuro.
+            </div>
+            <div class="info-panel shield-apovol">
+                Aportaciones seguras y supervisadas por CONSAR.
+            </div>
+            <div class="info-panel money-apovol">
+                Puedes aportar desde $100.00 MXN.
+            </div>
+
+            <div class="clear-both"></div>
+
+        </div>
+
+    </div>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        Las Aportaciones Voluntarias son cargos que se realizan a tu cuenta bancaria por el monto y frecuencia que tú elijas, ofreciéndote <a id="lnk-benefits">grandes beneficios</a>.
+    </p>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        <a id="lnk-add-contribution" class="lnk-yellow">Realizar Aportación Voluntaria</a>
+        <a id="lnk-reload-landing" class="btn-step display-none" data-event-id="reload"></a>
+        <a id="lnk-modify-contribution" class="btn-step display-none" data-event-id="edit"></a>
+        <a id="lnk-pause-contribution" class="btn-step display-none" data-event-id="pauseActivate"></a>
+    </div>
+
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+
+    <th:block th:if="${apovolVO.contributionFlowVO != null}">
+
+        <th:block th:if="not ${apovolVO.contributionFlowVO.contributionList.isEmpty()}">
+
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <strong>Aportaciones Voluntarias programadas</strong>
+            </p>
+
+            <table class="table-afore clear-both">
+
+                <thead>
+
+                <tr>
+                    <th>Cuenta</th>
+                    <th>Monto</th>
+                    <th class="hide-mobile">Frecuencia</th>
+                    <th class="hide-mobile">Día(s) de cargo</th>
+                    <th>Estatus</th>
+                    <th class="hide-mobile">Administrar<br/>aportaciones</th>
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <tr th:each="contribution: ${apovolVO.contributionFlowVO.contributionList}">
+                    <td th:utext="${contribution.value.description}"></td>
+                    <td th:utext="'$' + ${contribution.value.amount}"></td>
+                    <td class="hide-mobile" th:utext="${contribution.value.frequency}"></td>
+                    <td class="hide-mobile" th:utext="${contribution.value.chargeDay}"></td>
+                    <td th:utext="${contribution.value.status}"></td>
+                    <td class="text-center hide-mobile" th:attr="data-id-contribution=${contribution.value.id}">
+                        <th:block th:if="${contribution.value.typeValue == 0}">
+                            <th:block th:if="${contribution.value.suspended}">
+                                <div class="tooltip-reactivation-date" th:utext="'Fecha de reactivaci&oacute;n: ' + ${contribution.value.activationDate}"></div>
+                                <div class="icon-status-apovol icon-calendar icon-tooltip" title="Fecha de reactivaci&oacute;n"></div>
+                            </th:block>
+                        </th:block>
+                        <th:block th:if="not ${contribution.value.aforeMobile}">
+                            <div class="icon-status-apovol icon-green" title="Pausar / Reactivar"
+                                 th:if="${contribution.value.typeValue == 0}"></div>
+                            <div class="icon-status-apovol icon-edit" title="Modificar" th:if="${contribution.value.typeValue == 0}"></div>
+                            <div class="icon-status-apovol icon-delete" title="Eliminar"
+                                 data-event-id="remove"
+                                 data-fragment-container="removeContribution"
+                                 data-fragment-render="removeContribution"></div>
+                        </th:block>
+                        <th:block th:if="${contribution.value.aforeMobile}">
+                            <div class="tooltip-reactivation-date" th:utext="'Las aportaciones voluntarias registradas a trav&eacute;s de la app de Afore M&oacute;vil &uacute;nicamente pueden editarse o eliminarse a trav&eacute;s de esa aplicaci&oacute;n'"></div>
+                            <div class="icon-status-apovol icon-info icon-tooltip" title="Afore Móvil"></div>
+                        </th:block>
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </th:block>
+
+    </th:block>
+
+    <div class="text-center">&nbsp;</div>
+
+    <p class="text-center">
+        * Las Aportaciones programadas se ver&aacute;n reflejadas dentro de las pr&oacute;ximas 48 horas.
+    </p>
+
+    <div id="removeContribution" tiles:fragment="removeContribution"></div>
+
+    <input type="hidden" id="hd-id-contribution" name="contributionFlowVO.selectedContribution" value=""/>
+
+    <input type="hidden" id="hd-allow-create-distribution" th:value="${apovolVO.userInfoVO.proficientClient}"
+           th:attr="data-message=${apovolVO.userInfoVO.messageCode}"/>
+
+    <input type="hidden" id="view" value="landing" />
+
+</th:block>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+
+{
+  "success":true,
+  "data":{
+    "idUsuario": "1",
+    "nombre":"JULIO",
+    "apellidoMaterno":"LLAMAS",
+    "apellidoPaterno":"MOCTEZUMA",
+    "resultado": "Ok"
+  }
+}

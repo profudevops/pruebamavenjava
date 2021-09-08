@@ -1,0 +1,82 @@
+//
+// _notifications.scss
+//
+// It reflects the styles for the notifications
+//
+.notifications {
+    width: 100% !important;
+    max-width: rem(488px);
+
+    .vue-notification {
+        position: relative;
+        margin: rem(14px);
+        padding: rem(22px 30px 22px 100px);
+        font-size: rem(18px);
+        line-height: rem(24px);
+        background: #CCC;
+        border-left: none;
+        border-radius: rem(1px);
+        font-weight: 300;
+
+        @include breakpoint((max: $breakpoint-md - 1)){
+            margin: rem(5px);
+            padding: rem(15px 15px 15px 54px);
+            font-size: rem(14px);
+            line-height: rem(20px);
+        }
+
+        &:before {
+            display: block;
+            position: absolute;
+            @include vertical-middle;
+            left: rem(30px);
+            font-family: $font-awesome;
+            font-size: rem(40px);
+            font-weight: 900;
+            line-height: rem(40px);
+
+            @include breakpoint((max: $breakpoint-md - 1)){
+                left: rem(15px);
+                font-size: rem(24px);
+                line-height: rem(24px);
+            }
+        }
+
+        .notification-title {
+            display: block;
+            margin-bottom: rem(5px);
+            font-size: rem(20px);
+            line-height: rem(26px);
+            font-weight: 400;
+
+            @include breakpoint((max: $breakpoint-md - 1)){
+                margin-bottom: rem(1px);
+                font-size: rem(16px);
+                line-height: rem(22px);
+            }
+        }
+
+        // Types
+        &.info {
+            background: #7FB8E6;
+
+            &:before {
+                content: "\f05a";
+            }
+        }
+        &.warn {
+            background: #FDBD2C;
+
+            &:before {
+                content: "\f071";
+            }
+        }
+        &.error {
+            background: #EA7403;
+
+            &:before {
+                content: "\f00d";
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.areas-list {
+    .content {
+        background-color: $grey;
+        padding: rem(20px);
+        margin-bottom: rem(20px);
+
+        .description {
+            margin-top: rem(20px);
+            color: $light-grey;
+            line-height: 22px;
+            font-size: rem(16px);
+            font-weight: 300;
+            margin-bottom: 0px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h3 {
+            font-size: rem(18px);
+            color: $semi-black;
+            line-height: 24px;
+            font-weight: 600;
+            margin-bottom: 0px;
+        }
+
+        .subarea-container {
+            margin-top: rem(14px);
+            strong {
+                font-size: rem(14px);
+                color: $light-black;
+                display: block;
+                margin-bottom: rem(14px);
+            }
+
+            ul {
+                list-style: none;
+                margin: 0px;
+                padding-left: 10px;
+
+                li {
+                    color: $light-black;
+                    font-size: rem(14px);
+                    position: relative;
+
+                    &:before {
+                        content: '-';
+                        left: -10px;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    }
+}

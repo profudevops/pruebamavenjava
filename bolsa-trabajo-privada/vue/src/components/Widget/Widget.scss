@@ -1,0 +1,105 @@
+// Widget
+.widget {
+    width: 33.3334%;
+    padding: rem(10px);
+    text-align: center;
+
+    ::v-deep canvas {
+        width: 100% !important;
+        margin: 0 auto;
+        padding: rem(0 15px);
+    }
+
+    .wrap {
+        display: flex;
+        height: rem(210px);
+        padding: rem(25px 20px 20px 20px);
+        background: $grey;
+        border-radius: rem(1px);
+        align-items: center;
+
+        > div {
+            flex: 1 0 100%;
+        }
+    }
+
+    .title {
+        display: block;
+        font-weight: 400;
+        font-size: rem(14px);
+        line-height: rem(19px);
+        color: $semi-black;
+    }
+
+    // Stat
+    .stat {
+        strong {
+            display: block;
+            font-size: rem(72px);
+            line-height: rem(98px);
+            color: $black;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            height: rem(20px);
+            margin-top: rem(6px);
+            border-radius: rem(10px);
+            background: #3394E7;
+        }
+
+        &.complete:after {
+            background: #3394E7;
+        }
+    }
+
+    // Chart
+    &.chart {
+        .title {
+            margin-bottom: rem(20px);
+        }
+
+        &.sm {
+            .title {
+                margin-bottom: rem(10px);
+            }
+
+            ::v-deep canvas {
+                height: 150px !important;
+                padding: rem(0);
+            }
+        }
+        &.lg {
+            ::v-deep canvas {
+                height: 330px !important;
+            }
+
+            .wrap {
+                height: auto;
+                min-height: rem(210px);
+            }
+
+            .title {
+                font-size: rem(18px);
+                line-height: rem(24px);
+                color: #485465;
+            }
+        }
+    }
+
+    &.link {
+        cursor: pointer;
+    }
+
+    // Types
+    &.lg {
+        width: 66.6667%;
+    }
+    &.success > .wrap {
+        background: #D1F9CC;
+    }
+    &.current > .wrap {
+        background: #CCE4F9;
+    }
+}

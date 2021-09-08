@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <th:block tiles:include="modal-info"/>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 blue-text text-right description-resume">
+                Tipo
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 blue-text text-left description-resume">
+                Cuenta
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right description-resume-detail"
+                 th:utext="${apovolVO.contributionFlowVO.currentContributionVO.typeDescription}"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left description-resume-detail"
+                 th:utext="${apovolVO.contributionFlowVO.currentContributionVO.accountVO.description}"></div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+
+            <th:block th:if="${apovolVO.contributionFlowVO.currentContributionVO.selectedType == 0}">
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-sm-offset-2">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12 co-sm-12 col-xs-12">
+                            <span class="error-label"></span>
+                            <span class="label-input">Frecuencia</span>
+                            <select id="sel-frequency-distribution" class="full"
+                                    name="contributionFlowVO.currentContributionVO.frequencySelectionVO.type"
+                                    data-fragment-container="frequencyDetail"
+                                    data-fragment-render="frequencyDetail"
+                                    data-event-id="loadFrequencyDays">
+                                <option value="0">Selecciona la frecuencia</option>
+                                <option th:each="frecuency: ${apovolVO.frequencyVOMap}"
+                                        th:selected="${frecuency.value.id == apovolVO.contributionFlowVO.currentContributionVO.frequencySelectionVO.type}"
+                                        th:utext="${frecuency.value.description}"
+                                        th:value="${frecuency.value.id}"
+                                        th:attr="data-max-amount=${frecuency.value.maximumAmount}"></option>
+                            </select>
+                            <input type="hidden" th:value="${apovolVO.contributionFlowVO.currentContributionVO.frequencySelectionVO.type}"/>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="frequencyDetail" tiles:include="frequencyDetail"></div>
+
+            </th:block>
+
+            <th:block th:if="${apovolVO.contributionFlowVO.currentContributionVO.selectedType == 1}">
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
+
+                    <div class="col-lg-12 col-md-12 co-sm-12 col-xs-12">
+                        <div class="row text-center">
+                            <span class="error-label"></span>
+                            <span class="label-input">Fecha de cargo</span>
+                            <input id="calendar" type="text" class="full text-left icon-calendar-yellow" readonly="readonly"
+                                   data-event-id="validateDate"
+                                   data-fragment-container="validated-date"
+                                   data-fragment-render="validated-date"
+                                   th:value="${apovolVO.contributionFlowVO.currentContributionVO.frequencySelectionVO.onceDate}"
+                                   name="contributionFlowVO.currentContributionVO.frequencySelectionVO.onceDate"/>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="validated-date" tiles:include="validated-date"></div>
+
+            </th:block>
+
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
+                <div class="row text-center">
+                    <span class="error-label"></span>
+                    <span class="label-input">Monto Total</span>
+                    <input id="txt-amount-contribution" type="text"
+                           class="full icon-money text-right validation"
+                           autocomplete="off" placeholder="0.00"
+                           data-validate-only="float"
+                           name="contributionFlowVO.currentContributionVO.totalAmount"
+                           th:value="${apovolVO.contributionFlowVO.currentContributionVO.totalAmount}"/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <h3 class="text-center">Distribuye tu Aportación Voluntaria</h3>
+
+        <p class="text-center">
+            Elige el o los fondos en los que deseas invertir tu ahorro y as&iacute;gnale un monto. La suma de los fondos deber&aacute; ser el monto total de tu aportaci&oacute;n. <a id="lnk-details-contributions">Conoce las caracter&iacute;sticas de cada uno de los fondos.</a>
+        </p>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            &nbsp;
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="row">
+                        <h3 class="text-center">Monto</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:each="fund, stat: ${apovolVO.fundList}">
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 icon-i-blue">
+            <h3 class="text-right" th:utext="${fund.value.description}"></h3>
+            <div class="icon-click-contribution-description"></div>
+            <div class="description-contribution-float">
+                <div class="triangle-tab-up"></div>
+                <div class="close-description-contribution"></div>
+                <div class="text-center">
+                    <img th:src="@{/statics/images/icons/} + ${fund.value.icon}" />
+                </div>
+                <div>&nbsp;</div>
+                <div class="description">
+                    <strong>Rendimiento:</strong>&nbsp;<th:block th:utext="${fund.value.performance}"/><br/>
+                    <strong>Horizonte de inversión:</strong><br/>
+                    <th:block th:utext="${fund.value.features}"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 field-distribution">
+                    <div class="row">
+                        <input type="text"
+                               th:name="|contributionFlowVO.currentContributionVO.plainBreakDownMap[${fund.value.id}]|"
+                               class="full text-right icon-money txt-distribution-contribution validation"
+                               data-validate-only="float"
+                               autocomplete="off" placeholder="0.00" disabled="disabled"
+                               th:value="${apovolVO.contributionFlowVO.currentContributionVO.plainBreakDownMap[__${fund.value.id}__]}"/>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 percentage-contribution text-right">
+                    0%
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</div>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</div>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        <span id="error-label-distribution" class="error-label error-distribution"></span>
+    </p>
+
+    <div class="pending-contribution-container">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pending-contribution-label">
+            <span id="total-amount-pending">$0.00</span>&nbsp;PENDIENTES POR ASIGNAR A UN FONDO
+        </div>
+
+        <div id="pending-contribution-percentage" class="pending-contribution-percentage text-right">
+            0%
+        </div>
+
+        <div class="pending-contribution-bar-background">
+            <div class="pending-contribution-bar"></div>
+        </div>
+
+    </div>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</p>
+
+    <div id="accordion-error-flow" th:attr="data-json=${exceptionVO}"></div>
+
+</th:block>
+
+</body>
+</html>

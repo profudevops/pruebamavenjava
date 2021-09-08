@@ -1,0 +1,25 @@
+{
+  "success": "true",
+  "data": [
+	  {
+	    "idVacante": "1",
+	    "idSede": "1",
+	    "nombre":"UNO"
+	  },
+	  {
+	    "idVacante": "2",
+	    "idSede": "2",
+	    "nombre":"DOS"
+	  },
+	  {
+	    "idVacante": "3",
+	    "idSede": "3",
+	    "nombre":"TRES"
+	  },
+	  {
+	    "idVacante": "4",
+	    "idSede": "4",
+	    "nombre":"CUATRO"
+	  }
+  ]
+}

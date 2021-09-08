@@ -1,0 +1,18 @@
+.special-nav {
+    .nav-link {
+        font-weight: 400;
+        color: $semi-black;
+        line-height: 22px;
+        font-size: rem(16px);
+        padding: 1.125rem 1.5rem;
+        transition: all ease-in 250ms;
+    }
+    
+    .nav-fill, .nav-item {
+        flex: initial;
+    }
+
+    .tab-content {
+        padding-top: 1.25rem;
+    }
+}

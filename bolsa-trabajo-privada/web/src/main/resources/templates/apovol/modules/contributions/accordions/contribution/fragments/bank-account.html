@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</p>
+
+    <div class="col-lg-12 col-md-12 co-sm-12 col-xs-12">
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                <div class="col-lg-12 col-md-12 co-sm-12 col-xs-12">
+                    <div class="row">
+                        <span class="error-label"></span>
+                        <span class="label-input">Banco</span>
+                        <select id="sel-bank-name"
+                                class="full validation" name="contributionFlowVO.currentContributionVO.accountVO.idBank"
+                                data-validate-required="required">
+                            <option value="0">Selecciona un Banco</option>
+                            <th:block th:if="${apovolVO.reverseBankMap != null}">
+                                <option th:each="bank: ${apovolVO.reverseBankMap}"
+                                        th:value="${bank.value.id}" th:utext="${bank.value.description}"
+                                        th:attr="data-verification-number=${bank.value.verificationNumber}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 co-sm-12 col-xs-12">
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                <div class="col-lg-12 col-md-12 co-sm-12 col-xs-12">
+                    <div class="row">
+                        <span class="error-label"></span>
+                        <span class="label-input">Tipo</span>
+                        <select id="sel-bank-identification" class="full validation"
+                                disabled="disabled"
+                                name="contributionFlowVO.currentContributionVO.accountVO.type"
+                                data-validate-required="required">
+                            <option value="0">Selecciona el tipo de cuenta</option>
+                            <th:block th:if="${apovolVO.bankIdentificationVOMap != null}">
+                                <option th:each="bankId: ${apovolVO.bankIdentificationVOMap}"
+                                        th:attr="data-length=${bankId.value.length}, data-is-clabe=${bankId.value.clabe}"
+                                        th:value="${bankId.value.id}"
+                                        th:utext="${bankId.value.description}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field-bank-identification" class="col-lg-12 col-md-12 co-sm-12 col-xs-12">
+                    <div class="row">
+                        <span class="error-label no-label"></span>
+                        <span class="label-input display-none"></span>
+                        <input id="txt-bank-identification" type="text" class="full validation"
+                               autocomplete="off"
+                               placeholder=""
+                               data-validate-only="number"
+                               data-validate-required="required"
+                               data-validate-rules="required/min-length"
+                               data-validate-min-length="25"
+                               maxlength="25"
+                               data-validate-rules-message=""
+                               name="contributionFlowVO.currentContributionVO.accountVO.number"/>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+    <div id="accordion-error-flow" th:attr="data-json=${exceptionVO}"></div>
+
+</th:block>
+
+</body>
+</html>

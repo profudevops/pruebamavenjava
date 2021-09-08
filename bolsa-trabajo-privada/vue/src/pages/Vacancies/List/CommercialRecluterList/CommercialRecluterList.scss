@@ -1,0 +1,34 @@
+// Results
+.results {
+  margin-bottom: rem(20px);
+
+  @media (max-width: 768px) {
+    .top-table {
+      flex-direction: column;
+
+      button {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  table {
+    margin-bottom: 0;
+
+    a {
+      font-size: rem(14px);
+      line-height: rem(19px);
+      font-weight: 600;
+    }
+  }
+
+  .top-table {
+    padding: rem(14px);
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $primary-color;
+    border-bottom: none;
+    font-weight: 600;
+    color: $semi-black;
+  }
+}

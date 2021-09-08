@@ -1,0 +1,195 @@
+//
+// _dropdowns.scss
+//
+// It reflects the styles for the dropdowns
+//
+
+// Dropdown
+.opts-dropdown, .process-dropdown, .candidate-opts-dropdown {
+
+    button.btn.dropdown-toggle {
+        &, &:active,
+        &:not(:disabled):not(.disabled):active:focus {
+            width: 100%;
+            height: auto;
+            padding: rem(0 16px 0 0);
+            overflow: hidden;
+            white-space: nowrap;
+            display: block;
+            text-overflow: ellipsis;
+            border: none;
+            background: transparent;
+            border-radius: 0;
+            font-size: rem(14px);
+            color: $semi-black;
+        }
+    }
+
+    .dropdown-menu {
+        padding: rem(6px 0);
+        margin-top: rem(5px);
+        border-radius: 0;
+        border: none;
+        box-shadow: 0 2px 4px 0 rgba($black,0.50) !important;
+        text-align: center;
+
+        > li.active > .dropdown-item {
+            background: rgba($secondary-color, .1);
+        }
+
+        .dropdown-item {
+            padding: rem(4px 10px);
+            font-size: rem(14px);
+        }
+    }
+
+}
+
+// Options
+.opts-dropdown {
+
+    button.btn.dropdown-toggle {
+        &, &:active,
+        &:not(:disabled):not(.disabled):active:focus {
+
+            &:after {
+                font-family: $font-awesome;
+                content: "\f142";
+                display: block;
+                position: absolute;
+                @include vertical-middle;
+                right: rem(0);
+                margin: 0;
+                border: none;
+                font-size: rem(14px);
+                font-weight: 900;
+                pointer-events: none;
+            }
+        }
+    }
+
+    &.horizontal {
+        button.btn.dropdown-toggle {
+            &, &:active,
+            &:not(:disabled):not(.disabled):active:focus {
+                padding: 0px;
+            }
+        }
+    }
+}
+
+// Process dropdown
+.process-dropdown {
+
+    button.btn.dropdown-toggle {
+        &, &:active,
+        &:not(:disabled):not(.disabled):active:focus {
+            padding: rem(0 25px 0 0);
+            font-size: rem(20px);
+            color: $primary-color;
+
+            &:after {
+                font-family: $font-awesome;
+                content: "\f078";
+                display: block;
+                position: absolute;
+                @include vertical-middle;
+                right: rem(0);
+                margin: 0;
+                border: none;
+                font-size: rem(15px);
+                font-weight: 900;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        text-align: left;
+
+        .dropdown-item {
+            padding: rem(8px 10px);
+            font-size: rem(18px);
+            color: $primary-color;
+
+            &:active {
+                background: $white;
+            }
+        }
+    }
+}
+
+// Candidate options
+.candidate-opts-dropdown {
+    display: block;
+
+    .dropdown-menu {
+        margin-top: 0;
+    }
+
+    button.btn.dropdown-toggle {
+        &, &:active,
+        &:not(:disabled):not(.disabled):active:focus {
+            height: rem(50px);
+            padding-right: rem(42px);
+            background: $common-color;
+            font-size: rem(20px);
+
+            i {
+                padding-right: rem(5px);
+            }
+
+            &:after {
+                font-family: $font-awesome;
+                content: "\f141";
+                display: block;
+                position: absolute;
+                @include vertical-middle;
+                right: rem(14px);
+                margin: 0;
+                border: none;
+                font-size: rem(16px);
+                font-weight: 900;
+                pointer-events: none;
+            }
+        }
+    }
+
+    // Types
+    &.talent {
+        button.btn.dropdown-toggle {
+            &, &:active,
+            &:not(:disabled):not(.disabled):active:focus {
+                background-color: #53B312;
+
+                &, i {
+                    color: $white;
+                }
+            }
+        }
+    }
+    &.banned {
+        button.btn.dropdown-toggle {
+            &, &:active,
+            &:not(:disabled):not(.disabled):active:focus {
+                background-color: #D0021B;
+
+                &, i {
+                    color: $white;
+                }
+            }
+        }
+    }
+    &.hired {
+        button.btn.dropdown-toggle {
+            &, &:active,
+            &:not(:disabled):not(.disabled):active:focus {
+                background-color: #FFC000;
+
+                &, i {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

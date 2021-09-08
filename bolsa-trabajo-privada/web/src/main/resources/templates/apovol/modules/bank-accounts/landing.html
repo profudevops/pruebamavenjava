@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        Consulta y administra las cuentas bancarias que tienes asociadas a tus Aportaciones Voluntarias.
+    </p>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</p>
+
+    <th:block th:if="not ${apovolVO.accountsList.isEmpty()}">
+
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 text-center">
+
+            <table class="table-afore clear-both">
+
+                <thead>
+
+                <tr>
+                    <th>Cuenta</th>
+                    <th>Estatus</th>
+                    <th>Administrar</th>
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <tr th:each="account: ${apovolVO.accountsList}">
+                    <td class="text-left" th:utext="${account.value.description}">SCOTIABANK | DEBITO *****1234</td>
+                    <td class="text-center" th:utext="${account.value.status}">Activa</td>
+                    <td class="text-center" th:attr="data-id-account=${account.value.id}">
+                        <div class="icon-status-apovol icon-delete" title="Eliminar"
+                             data-event-id="deleteAccount"
+                             data-fragment-container="removeAccount"
+                             data-fragment-render="removeAccount"></div>
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+    </th:block>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        <h3 class="text-center">AGREGAR CUENTA BANCARIA</h3>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        Selecciona la operación que deseas llevar a cabo:
+    </div>
+
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</div>
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                <a id="lnk-add-contribution" class="lnk-yellow width-full text-center">Realizar Aportaciones Voluntarias</a>
+            </div>
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <a class="lnk-yellow width-full text-center btn-step"
+                   data-event-id="addAccount">Registrar Cuenta Bancaria</a>
+            </div>
+
+        </div>
+    </div>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</p>
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">&nbsp;</p>
+
+    <div id="removeAccount" tiles:fragment="removeAccount"></div>
+
+    <a id="lnk-reload-landing" class="btn-step display-none" data-event-id="reload">Recargar</a>
+
+    <input type="hidden" id="hd-id-contribution" name="accountFlowVO.selectedAccount" value=""/>
+
+    <input type="hidden" id="hd-allow-create-distribution" th:value="${apovolVO.userInfoVO.proficientClient}"
+           th:attr="data-message=${apovolVO.userInfoVO.messageCode}"/>
+
+    <input type="hidden" id="view" value="landing-bank-account" />
+
+</th:block>
+
+</body>
+</html>

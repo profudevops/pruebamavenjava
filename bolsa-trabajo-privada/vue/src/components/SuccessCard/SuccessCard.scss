@@ -1,0 +1,24 @@
+.success-card {
+    background-color: $blue;
+    color: $white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 30px 40px;
+    margin-bottom: 40px;
+    
+    .icon {
+        font-size: rem(40px);
+        margin-right: 25px;
+    }
+
+    h4 {
+        font-size: rem(20px);
+    }
+
+    p {
+        font-size: rem(18px);
+        font-weight: 300;
+        margin-bottom: 0px;
+    }
+}

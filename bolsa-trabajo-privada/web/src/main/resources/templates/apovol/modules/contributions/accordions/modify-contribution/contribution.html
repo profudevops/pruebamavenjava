@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <h1 class="text-center">
+        Modifica tu Aportación Voluntaria
+    </h1>
+
+    <p class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 text-center">
+        Modifica la frecuencia o los días de cargo, cambia el monto o distribúyelo en diferentes fondos.
+    </p>
+
+    <p class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 text-center small-text">
+        Los cambios en los días de cargo aplican a partir del próximo día hábil.
+    </p>
+
+    <div class="clear-both">&nbsp;</div>
+
+    <div id="accordion">
+
+        <h3>Paso 1 - Detalle de aportación</h3>
+        <div id="step-0">
+
+            <div class="loader-accordion"></div>
+
+            <div id="contribution-detail" tiles:include="contribution-detail"></div>
+
+            <p class="text-center clear-both">
+                <button id="btn-next-detail" class="normal"
+                        data-step="next"
+                        data-event-id="loadResumeStep"
+                        data-fragment-render="contribution-resume"
+                        data-fragment-container="contribution-resume">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 2 - Resumen de aportación</h3>
+        <div id="step-1">
+
+            <div class="loader-accordion"></div>
+
+            <div id="contribution-resume" tiles:include="contribution-resume"></div>
+
+            <p class="text-center clear-both">
+                <button class="normal btn-step-accordion" data-step="back">Atrás</button>
+                <button class="confirm btn-confirmation validate"
+                        data-step="next"
+                        data-event-id="loadConfirmationStep"
+                        data-fragment-container="contribution-success"
+                        data-fragment-render="contribution-success">Autorizar</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 3 - Aportación programada</h3>
+        <div id="step-2">
+
+            <div id="contribution-success" tiles:include="contribution-success"></div>
+
+            <p class="text-center clear-both">
+                <button id="lnk-my-account" class="confirm yellow width-auto">Ir a la página principal</button>
+                <br/>
+                <br/>
+                <a class="btn-step" data-event-id="backToInit">Consultar mis Aportaciones Voluntarias</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <input type="hidden" id="view" value="contribution-modify"/>
+
+</th:block>
+
+</body>
+</html>

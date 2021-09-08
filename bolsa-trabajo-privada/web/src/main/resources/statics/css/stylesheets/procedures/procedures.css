@@ -1,0 +1,368 @@
+@charset "UTF-8";
+.nav > li {
+  position: static !important; }
+
+div.app-profuturo * {
+  font-family: Arial, serif; }
+div.app-profuturo .text-center {
+  text-align: center !important; }
+div.app-profuturo .text-left {
+  text-align: left !important; }
+div.app-profuturo .text-right {
+  text-align: right !important; }
+div.app-profuturo .text-justify {
+  text-align: justify !important; }
+div.app-profuturo .text-bold {
+  font-weight: 700; }
+div.app-profuturo .text-upper {
+  text-transform: uppercase; }
+div.app-profuturo .text-red {
+  colr: #e85c4d; }
+div.app-profuturo .float-left {
+  float: left; }
+div.app-profuturo .float-right {
+  float: right; }
+div.app-profuturo .clear-both {
+  clear: both; }
+div.app-profuturo .display-inline-block {
+  display: inline-block;
+  width: 100%; }
+div.app-profuturo .display-inline-block-only {
+  display: inline-block; }
+div.app-profuturo .display-none {
+  display: none !important; }
+div.app-profuturo .visibility-hidden {
+  visibility: hidden; }
+  @media (max-width: 767px) {
+    div.app-profuturo .visibility-hidden {
+      display: none; } }
+div.app-profuturo .position-absolute {
+  position: absolute; }
+div.app-profuturo .position-relative {
+  position: relative; }
+div.app-profuturo .position-bottom {
+  position: absolute;
+  bottom: 0; }
+div.app-profuturo .position-top {
+  position: absolute;
+  top: 0; }
+div.app-profuturo .position-right {
+  position: absolute;
+  right: 0; }
+div.app-profuturo .position-left {
+  position: absolute;
+  left: 0; }
+div.app-profuturo .width-auto {
+  width: auto !important; }
+@media (max-width: 767px) {
+  div.app-profuturo .hide-mobile {
+    display: none !important; } }
+@media (min-width: 768px) {
+  div.app-profuturo .hide-desktop {
+    display: none !important; } }
+div.app-profuturo .table-afore {
+  width: 100%;
+  box-shadow: 0 0 5px 2px #e1e1e1;
+  margin-bottom: 36px; }
+  div.app-profuturo .table-afore thead {
+    background: #00427a;
+    padding: 15px;
+    border-bottom: 2px solid #0081c3; }
+    div.app-profuturo .table-afore thead tr th {
+      color: #ffffff;
+      font-size: 14px;
+      text-align: center;
+      font-weight: normal;
+      padding: 10px; }
+  div.app-profuturo .table-afore tbody tr:nth-child(even) {
+    background: #e6f3fd; }
+  div.app-profuturo .table-afore tbody tr td {
+    color: #4a4a4a;
+    font-size: 14px;
+    padding: 5px 15px; }
+    div.app-profuturo .table-afore tbody tr td h6 {
+      padding: 20px 0; }
+
+div.app-profuturo .loader {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(../../../images/gif/loading-icon-gray.gif) rgba(150, 150, 150, 0.5) center center no-repeat;
+  background-size: 70px;
+  display: none; }
+div.app-profuturo .loader-accordion {
+  background: url(../../../images/gif/loading-icon-gray.gif) rgba(150, 150, 150, 0.5) center center no-repeat;
+  background-size: 70px;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none; }
+div.app-profuturo .ui-accordion-content {
+  position: relative; }
+
+div.app-profuturo {
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 10px;
+  max-width: 940px; }
+  div.app-profuturo button:focus, div.app-profuturo input:focus, div.app-profuturo select:focus {
+    outline: 0; }
+  div.app-profuturo h1 {
+    font-family: Arial, serif;
+    color: #00427a;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 3px;
+    margin-top: 0;
+    margin-bottom: 15px; }
+    @media (max-width: 767px) {
+      div.app-profuturo h1 {
+        font-size: 18px; } }
+  div.app-profuturo hr {
+    border-color: #c9c9c9; }
+  div.app-profuturo p {
+    font-size: 14px;
+    font-family: Arial, serif;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    word-break: break-word; }
+    @media (max-width: 767px) {
+      div.app-profuturo p {
+        font-size: 12px; } }
+    div.app-profuturo p.blue {
+      color: #00427a; }
+    div.app-profuturo p.small-text {
+      font-size: 12px; }
+  div.app-profuturo button {
+    width: 207px;
+    height: 44px;
+    border: none;
+    font-family: Arial, serif;
+    font-size: 18px;
+    color: #ffffff;
+    border-radius: 2px;
+    margin: 0 15px 24px; }
+    div.app-profuturo button:hover {
+      cursor: pointer; }
+    div.app-profuturo button.confirm {
+      background-color: #00427a; }
+      div.app-profuturo button.confirm:hover {
+        background-color: #0072BC; }
+    div.app-profuturo button.normal {
+      background-color: #ffffff;
+      color: #00427a;
+      border: 1px solid #00427a;
+      border-radius: 2px; }
+      div.app-profuturo button.normal:hover {
+        background-color: #e7edf2; }
+      div.app-profuturo button.normal:active {
+        background-color: #c5d4e1; }
+    div.app-profuturo button.yellow {
+      background-color: #ffc000;
+      color: #00305b; }
+      div.app-profuturo button.yellow:hover {
+        background-color: #ffcd33; }
+    div.app-profuturo button.file {
+      border-radius: 8px;
+      color: #00427a;
+      padding: 10px 10px 10px 25px;
+      width: 160px;
+      height: 40px;
+      font-size: 14px;
+      background: #c5d4e1 url(../../../images/icons/icon-clip.png) no-repeat 15px;
+      background-size: 10px;
+      margin: 0 0 26px;
+      float: left; }
+      @media (max-width: 767px) {
+        div.app-profuturo button.file {
+          margin: 10px auto; } }
+      div.app-profuturo button.file:hover {
+        background: url(../../../images/icons/icon-clip.png) #98b3ca no-repeat 15px;
+        background-size: 10px; }
+    div.app-profuturo button.width-auto {
+      width: auto;
+      padding: 0 25px; }
+    div.app-profuturo button:disabled, div.app-profuturo button:disabled:hover {
+      background-color: #ffffff;
+      cursor: default;
+      opacity: 0.5; }
+    div.app-profuturo button.disabled, div.app-profuturo button.disabled:hover {
+      background-color: #c9c9c9;
+      cursor: default; }
+  div.app-profuturo input[type=text], div.app-profuturo input[type=file], div.app-profuturo select {
+    border: 1px solid #979797;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    width: 239px;
+    height: 32px;
+    box-sizing: border-box;
+    font-family: Arial, serif;
+    font-size: 16px;
+    color: #4a4a4a;
+    padding: 3px 5px; }
+    @media (max-width: 767px) {
+      div.app-profuturo input[type=text], div.app-profuturo input[type=file], div.app-profuturo select {
+        font-size: 14px; } }
+    div.app-profuturo input[type=text]:focus, div.app-profuturo input[type=file]:focus, div.app-profuturo select:focus {
+      border-color: #fdb813; }
+    div.app-profuturo input[type=text].full, div.app-profuturo input[type=file].full, div.app-profuturo select.full {
+      width: 100%; }
+    div.app-profuturo input[type=text].error-input, div.app-profuturo input[type=file].error-input, div.app-profuturo select.error-input {
+      background: url(../../../images/datos-personales/icons/icon-error-input.png) no-repeat center right 5px;
+      border-color: #e85c4d;
+      background-size: 20px;
+      padding-right: 35px; }
+    div.app-profuturo input[type=text].success, div.app-profuturo input[type=file].success, div.app-profuturo select.success {
+      background: url(../../../images/datos-personales/icons/icon-success-input.png) no-repeat center right 5px;
+      border-color: #50cc01;
+      background-size: 20px;
+      padding-right: 35px; }
+  div.app-profuturo input[type=checkbox].styled-checkbox {
+    display: none; }
+    div.app-profuturo input[type=checkbox].styled-checkbox + label {
+      background-color: #ffffff;
+      border: 1px solid #979797;
+      padding: 9px;
+      display: inline-block;
+      position: relative;
+      margin-top: 5px; }
+    div.app-profuturo input[type=checkbox].styled-checkbox:checked + label {
+      background-color: #fdb813;
+      border: none;
+      padding: 10px;
+      color: #ffffff; }
+      div.app-profuturo input[type=checkbox].styled-checkbox:checked + label:after {
+        content: "✔";
+        font-size: 17px;
+        position: absolute;
+        top: 0;
+        left: 3px;
+        color: #ffffff; }
+  div.app-profuturo label {
+    margin: 0; }
+  div.app-profuturo span.label-input {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #00427a; }
+    @media (max-width: 767px) {
+      div.app-profuturo span.label-input {
+        font-size: 14px; } }
+    div.app-profuturo span.label-input.error-input {
+      color: #e85c4d; }
+    div.app-profuturo span.label-input.side-input {
+      text-align: right;
+      position: relative;
+      top: 6px;
+      right: -20px; }
+  div.app-profuturo span.validation-code-status {
+    font-size: 16px;
+    color: #00427a;
+    font-weight: 700;
+    position: relative;
+    top: 7px; }
+    div.app-profuturo span.validation-code-status.error-validation {
+      color: #d00000; }
+    div.app-profuturo span.validation-code-status.success-validation {
+      color: #008e00; }
+  div.app-profuturo span.error-label {
+    color: #e85c4d;
+    font-size: 10px;
+    float: left;
+    position: absolute;
+    margin-top: 58px;
+    height: 13px;
+    display: none; }
+    div.app-profuturo span.error-label.error-input {
+      display: inline-block; }
+    div.app-profuturo span.error-label.file {
+      margin-top: 42px; }
+    div.app-profuturo span.error-label.email {
+      margin-top: 34px; }
+  div.app-profuturo div.data-info-update-container {
+    background: #f7f7f7; }
+    div.app-profuturo div.data-info-update-container div.data-info-update {
+      width: 32%;
+      display: inline-block;
+      padding: 10px 10px;
+      box-sizing: border-box;
+      vertical-align: top;
+      margin: 0 10px; }
+  div.app-profuturo a.link-privacy {
+    color: #337ab7; }
+    div.app-profuturo a.link-privacy:hover {
+      cursor: pointer; }
+
+div.ui-accordion div.ui-accordion-content {
+  border: none;
+  background-color: #ffffff; }
+  @media (max-width: 767px) {
+    div.ui-accordion div.ui-accordion-content {
+      padding: 0; } }
+div.ui-accordion h3.ui-accordion-header {
+  border-radius: 0;
+  border: none;
+  background-color: #f7f7f7;
+  color: #00427a;
+  padding: 12px 15px;
+  height: 40px;
+  font-size: 14px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(74, 74, 74, 0.5); }
+  div.ui-accordion h3.ui-accordion-header:focus {
+    outline: 0; }
+  div.ui-accordion h3.ui-accordion-header:hover {
+    cursor: default; }
+  div.ui-accordion h3.ui-accordion-header span {
+    width: 9px;
+    height: 6px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: url(../../../images/datos-personales/icons/arrows-panel.png) no-repeat center right;
+    background-size: 18px 6px; }
+    div.ui-accordion h3.ui-accordion-header span.ui-icon-triangle-1-s {
+      background-position: center left; }
+
+div.swal-theme-profuturo {
+  padding: 0; }
+  div.swal-theme-profuturo .sa-icon {
+    margin-top: 60px; }
+  div.swal-theme-profuturo h2 {
+    position: absolute;
+    top: 0;
+    padding: 15px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    border-bottom: 1px solid #ffc000;
+    color: #00427a; }
+  div.swal-theme-profuturo p {
+    padding: 15px; }
+  div.swal-theme-profuturo .sa-button-container {
+    padding: 15px 15px 30px; }
+    div.swal-theme-profuturo .sa-button-container button {
+      margin: 0 10px;
+      background-color: #00427a !important;
+      border-radius: 3px; }
+      div.swal-theme-profuturo .sa-button-container button:hover {
+        background-color: #0072BC !important; }
+      div.swal-theme-profuturo .sa-button-container button.cancel {
+        background-color: #ffffff !important;
+        color: #00427a;
+        border: 1px solid #00427a; }
+        div.swal-theme-profuturo .sa-button-container button.cancel:hover {
+          background-color: #e7edf2 !important; }
+        div.swal-theme-profuturo .sa-button-container button.cancel:active {
+          background-color: #c5d4e1 !important; }
+
+/*# sourceMappingURL=procedures.css.map */

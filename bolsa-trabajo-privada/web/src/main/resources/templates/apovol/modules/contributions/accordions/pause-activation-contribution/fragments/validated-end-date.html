@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <!-- End date fragment -->
+    <input type="hidden" id="hd-validated-date-end"
+           th:value="${apovolVO.contributionFlowVO.pauseReactivationVO.validEndDate}"/>
+
+</th:block>
+
+</body>
+</html>

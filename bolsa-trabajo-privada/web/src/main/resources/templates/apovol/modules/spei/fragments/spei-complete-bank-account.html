@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</p>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        Selecciona la transferencia que deseas ajustar:
+    </p>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+        <th:block th:each="account, iter: ${apovolVO.speiFlowVO.incompleteTransferVOs}">
+            <input type="radio" th:id="'rd-' + ${iter.index}" class="radio-select"
+                   th:attr="data-account=${account.key}"
+                   data-value="0"/>
+            <label th:for="'rd-' + ${iter.index}" class="small-text margin-bottom">
+                <span></span>
+                <th:block th:utext="${account.value.accountVO.description}"/>
+            </label>
+            <br/>
+        </th:block>
+
+        <input id="hd-selected-account" type="hidden" name="speiFlowVO.selectedTransfer" value="0"/>
+
+    </p>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</p>
+
+</th:block>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <div class="contribution-detail">
+
+        <table class="no-styles">
+
+            <thead>
+
+            <tr>
+                <td>Cuenta</td>
+                <td>Monto</td>
+                <td>Frecuencia</td>
+                <td>D&iacute;as de cargo</td>
+                <td>Estatus</td>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td class="text-center" th:utext="${apovolVO.contributionFlowVO.currentContributionResume.description}"></td>
+                <td class="text-center" th:utext="'$' + ${apovolVO.contributionFlowVO.currentContributionResume.amount}"></td>
+                <td class="text-center" th:utext="${apovolVO.contributionFlowVO.currentContributionResume.frequency}"></td>
+                <td class="text-center" th:utext="${apovolVO.contributionFlowVO.currentContributionResume.chargeDay}"></td>
+                <td class="text-center">Activa</td>
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+
+                <span class="error-label"></span>
+                <span class="label-input">Fecha de pausa</span>
+                <input type="text" id="txt-calendar-pause"
+                       class="full text-left icon-calendar-yellow calendar-contribution validation"
+                       data-event-id="validateStartDate"
+                       data-fragment-container="validated-start-date"
+                       data-fragment-render="validated-start-date"
+                       data-calendar="pause"
+                       data-validate-rules="required"
+                       readonly="readonly" name="contributionFlowVO.pauseReactivationVO.startDate" />
+
+            </div>
+
+            <div class="display-none" id="validated-start-date" tiles:include="validated-start-date"></div>
+
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+                <span class="error-label"></span>
+                <span class="label-input">Fecha de reactivaci&oacute;n</span>
+                <input type="text" id="txt-calendar-reactivation" disabled="disabled"
+                       class="full text-left icon-calendar-yellow calendar-contribution validation"
+                       data-event-id="validateEndDate"
+                       data-fragment-container="validated-end-date"
+                       data-fragment-render="validated-end-date"
+                       data-calendar="reactivation"
+                       data-validate-rules="required"
+                       readonly="readonly" name="contributionFlowVO.pauseReactivationVO.endDate"/>
+
+            </div>
+
+            <div class="display-none" id="validated-end-date" tiles:include="validated-end-date"></div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+    <p class="text-center">
+        Si deseas mantener tu aportaci&oacute;n en pausa por m&aacute;s de 6 meses te recomendamos <a class="btn-step" data-event-id="backToInit">eliminarla</a> y programar una nueva cuando as&iacute; lo decidas.
+    </p>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+    <div id="accordion-error-flow" th:attr="data-json=${exceptionVO}"></div>
+
+</th:block>
+
+</body>
+</html>

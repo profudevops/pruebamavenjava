@@ -1,0 +1,490 @@
+//
+// _forms.scss
+//
+// It reflects the styles for the forms
+//
+
+.custom-control-inline {
+  margin-right: rem(60px);
+}
+
+// Form group
+.form-group {
+  margin-bottom: rem(20px);
+
+  > label,
+  > legend {
+    position: relative;
+    margin-bottom: rem(5px);
+    padding-right: rem(90px);
+    font-size: rem(16px);
+    line-height: rem(26px);
+    color: #1a1717;
+  }
+
+  > legend {
+    padding-bottom: 0;
+  }
+
+  &.is-invalid {
+    .vdp-datepicker input {
+      border-color: $red;
+    }
+  }
+}
+
+.form-group.required > label {
+  &:after {
+    content: 'Obligatorio';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: rem(12px);
+    line-height: rem(16px);
+    color: rgba($black, 0.5);
+  }
+}
+
+// Input group
+.input-group {
+  .form-control {
+    padding-right: rem(38px);
+    background: $white;
+    border-radius: rem(1px) !important;
+  }
+
+  &.prepend {
+    .form-control {
+      padding-right: 0.75rem;
+      padding-left: rem(38px);
+    }
+  }
+
+  .input-group-append {
+    position: absolute;
+    top: rem(17px);
+    right: rem(12px);
+    z-index: 100;
+  }
+
+  .input-group-prepend {
+    position: absolute;
+    top: rem(17px);
+    left: rem(12px);
+    z-index: 100;
+  }
+}
+
+// Form control
+.form-control {
+  height: rem(50px);
+  border-radius: rem(1px);
+
+  
+  &,
+  &:focus {
+    border-color: #d9d9d9;
+    color: $common-color;
+  }
+
+  &.is-invalid {
+    background-image: none;
+    border-color: #d0021b;
+  }
+
+  &::placeholder {
+    color: #a09494;
+  }
+}
+
+textarea.form-control {
+  height: rem(115px);
+}
+
+// File input
+fieldset .b-form-file.custom-file {
+  margin-bottom: 0 !important;
+}
+.custom-file {
+  height: rem(50px);
+}
+input.custom-file-input {
+  ~ .custom-file-label[data-browse] {
+    height: rem(50px);
+    border-radius: rem(1px);
+    line-height: rem(50px);
+    padding-top: 0;
+    padding-bottom: 0;
+    color: $common-color;
+    cursor: pointer;
+
+    &:after {
+      content: 'Seleccionar CV';
+      @include custom-button($btn-primary);
+      width: rem(160px);
+      height: rem(48px);
+      padding-top: 0;
+      padding-bottom: 0;
+      background: #f2f2f2;
+      border-color: #d9d9d9;
+      border-radius: rem(1px);
+      font-size: rem(16px);
+      line-height: rem(48px);
+      text-align: center;
+      color: #1a1717;
+
+      @include breakpoint($xs) {
+        width: 120px;
+        padding: rem(0 10px);
+        font-size: rem(14px);
+      }
+    }
+  }
+
+  &:focus ~ .custom-file-label {
+    border-color: #ccc;
+    box-shadow: none;
+  }
+}
+
+// Input search
+input[type='search'] {
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+
+  // IE
+  &::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  &::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+// Radio
+div.custom-radio {
+  + .custom-radio {
+    margin-top: rem(10px);
+  }
+
+  .custom-control-label {
+    font-size: rem(14px);
+    line-height: rem(19px);
+    color: #1a1717;
+  }
+
+  &.custom-control {
+    min-height: rem(20px);
+  }
+  .custom-control-input:checked ~ .custom-control-label {
+    &:before {
+      border-color: $primary-color;
+      background: $white;
+    }
+
+    &:after {
+      top: 0;
+      background: $primary-color;
+      border-radius: 50%;
+      width: rem(12px);
+      height: rem(12px);
+      margin-left: rem(4px);
+      margin-top: rem(4px);
+    }
+  }
+
+  .custom-control-input:focus ~ .custom-control-label {
+    &:before {
+      box-shadow: none;
+      border-color: $primary-color;
+    }
+  }
+
+  .custom-control-label {
+    padding-left: rem(5px);
+
+    &:before,
+    &:after {
+      top: 50%;
+      margin-top: rem(-10px);
+      width: rem(20px);
+      height: rem(20px);
+    }
+
+    &:before {
+      border-color: #1a1717;
+    }
+  }
+}
+
+// Checkbox
+div.custom-checkbox {
+  .custom-control-label {
+    color: #1a1717;
+    font-size: rem(14px);
+    line-height: rem(19px);
+  }
+
+  &.custom-control {
+    min-height: rem(20px);
+
+    &.custom-control-inline {
+      margin-right: rem(65px);
+    }
+  }
+
+  .custom-control-input:not(:disabled):active ~ .custom-control-label,
+  .custom-control-input:checked ~ .custom-control-label,
+  .custom-control-input:focus ~ .custom-control-label {
+    &:before {
+      box-shadow: none;
+      border-color: $semi-black;
+      background: none;
+    }
+  }
+
+  .custom-control-input:checked ~ .custom-control-label {
+    &:before {
+      background-color: $white;
+    }
+
+    &:after {
+      content: '\f00c';
+      background-image: none;
+      font-family: $font-awesome;
+      font-size: rem(16px);
+      line-height: rem(20px);
+      font-weight: 900;
+      text-align: center;
+      color: $semi-black;
+    }
+  }
+
+  .custom-control-label {
+    padding-left: rem(5px);
+
+    &:before,
+    &:after {
+      top: 50%;
+      margin-top: rem(-10px);
+      width: rem(20px);
+      height: rem(20px);
+    }
+
+    &:before {
+      border-color: $semi-black;
+      border-radius: rem(1px);
+    }
+  }
+}
+
+// Select
+select.custom-select,
+.mega-select button.btn.dropdown-toggle {
+  &,
+  &:active,
+  &:not(:disabled):not(.disabled):active:focus {
+    height: rem(50px);
+    padding-right: rem(36px);
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    text-overflow: ellipsis;
+    background: $white;
+    border: 1px solid rgba($black, 0.15);
+    border-radius: 0;
+    color: $common-color;
+    text-align: left;
+  }
+
+  &:focus {
+    border: 1px solid rgba($black, 0.15);
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// Select wrapper
+.select-wrapper,
+.mega-select-wrapper {
+  position: relative;
+}
+
+.select-wrapper,
+.mega-select {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+
+  select {
+    background-image: none !important;
+  }
+
+  button.btn.dropdown-toggle {
+    width: 100%;
+
+    &:after {
+      font-family: $font-awesome;
+      content: '\f078';
+      display: block;
+      position: absolute;
+      @include vertical-middle;
+      right: rem(12px);
+      margin: 0;
+      border: none;
+      font-size: 1rem;
+      font-weight: 900;
+      color: $common-color;
+      pointer-events: none;
+    }
+  }
+}
+
+.select-wrapper,
+.mega-select button.btn.dropdown-toggle {
+  &:after {
+    font-family: $font-awesome;
+    content: '\f078';
+    display: block;
+    position: absolute;
+    @include vertical-middle;
+    right: rem(12px);
+    margin: 0;
+    border: none;
+    font-size: 1rem;
+    font-weight: 900;
+    color: $common-color;
+    pointer-events: none;
+  }
+
+  &.hour-select:after {
+    content: '\f017';
+    font-weight: 400;
+  }
+}
+
+// Multiselect
+.multiselect {
+  display: inline-block;
+  width: auto;
+  min-height: auto;
+
+  &__placeholder,
+  &__tags-wrap,
+  &__select {
+    display: none;
+  }
+
+  &__above,
+  &__tags {
+    display: inline-block;
+    min-height: auto;
+    padding: 0;
+    border: none;
+  }
+
+  &__single {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: rem(14px);
+    line-height: rem(19px);
+    color: $semi-black;
+
+    i {
+      padding-left: rem(5px);
+    }
+  }
+
+  .multiselect__content-wrapper {
+    position: absolute;
+    width: rem(200px);
+    max-height: rem(200px) !important;
+    z-index: 100;
+    margin: rem(5px 0);
+    background: $white;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__option {
+    position: relative;
+    min-height: auto;
+    margin: rem(5px 0);
+    padding: rem(5px 10px 5px 30px);
+    font-size: rem(14px);
+    line-height: rem(19px);
+    white-space: inherit;
+
+    &:hover {
+      background: rgba($grey, 0.2);
+      color: $semi-black;
+    }
+
+    &--selected,
+    &--selected.multiselect__option--highlight,
+    &--highlight {
+      background: none;
+      font-weight: 400;
+      color: $semi-black;
+    }
+
+    &--selected {
+      &:before {
+        font-family: $font-awesome;
+        content: '\f00c';
+        display: block;
+        position: absolute;
+        @include vertical-middle;
+        left: rem(10px);
+        font-size: rem(12px);
+        font-weight: 900;
+        color: $semi-black;
+      }
+    }
+  }
+}
+
+// Datepicker
+.vdp-datepicker {
+  width: 100%;
+
+  .form-control[readonly] {
+    background: $white;
+    cursor: pointer;
+  }
+
+  .form-control[disabled] {
+    background: $grey;
+    cursor: not-allowed;
+  }
+
+  .vdp-datepicker__calendar {
+    z-index: 150;
+
+    .cell {
+      &.selected {
+        background: $primary-color !important;
+        color: $white;
+      }
+
+      &:not(.disabled):not(.blank):hover {
+        border-color: $primary-color !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+// Section title
+.section-title {
+  margin-bottom: rem(20px);
+
+  + div > {
+    ::v-deep .loading {
+      padding-top: 0;
+    }
+  }
+}
+
+// Loading
+::v-deep .loading {
+  padding: rem(20px 0);
+  font-size: rem(18px);
+  line-height: rem(26px);
+  color: $common-color;
+}
+
+// Widget
+::v-deep .widget {
+  width: 100%;
+  margin-bottom: rem(36px);
+  padding: 0;
+
+  .wrap {
+    height: 440px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  canvas {
+    padding: 0;
+    height: 400px;
+  }
+
+  .donut canvas {
+    height: 300px;
+  }
+}
+
+// Filters
+::v-deep .filters {
+  strong {
+    display: block;
+    margin-bottom: rem(20px);
+    font-size: rem(18px);
+    line-height: rem(24px);
+    color: $semi-black;
+  }
+
+  .form-group {
+    margin-bottom: rem(25px);
+  }
+
+  .btn {
+    display: inline-block;
+    width: rem(300px);
+    margin: 0 auto rem(25px) auto;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+
+// Report options
+.report-opts {
+  margin: rem(15px 0);
+
+  .btn {
+    display: block;
+    width: 100%;
+  }
+}

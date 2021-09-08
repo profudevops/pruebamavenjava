@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="standard-container" template="error-auth.html" templateType="thymeleaf"/>
+
+	<definition name="error" extends="standard-container" templateType="thymeleaf">
+		<put-attribute name="content" value="commons/errors/error.html :: fragment"/>
+	</definition>
+
+	<definition name="jsonerror" template="commons/errors/json-error.html :: error-json" templateType="thymeleaf"/>
+
+	<definition name="login-ok" template="commons/login/login-ok.html :: content" templateType="thymeleaf"/>
+	<definition name="login-error" template="commons/login/login-error.html :: content" templateType="thymeleaf"/>
+
+	<definition name="version" template="commons/version/version.html"/>
+
+	<definition name="init-error-view" template="error-auth.html"/>
+	<definition name="init-view" template="index.html"/>
+
+</tiles-definitions>

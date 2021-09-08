@@ -1,0 +1,242 @@
+// Section title
+.section-title {
+  margin-bottom: rem(30px);
+
+  + .vacancy-name {
+    display: block;
+    margin-top: rem(-25px);
+    margin-bottom: rem(30px);
+    font-size: rem(20px);
+    line-height: rem(27px);
+    font-weight: 600;
+    color: $primary-color;
+  }
+}
+
+.np {
+  display: block;
+  margin-top: rem(-25px);
+  margin-bottom: rem(30px);
+  color: $primary-color;
+
+  b {
+    font-weight: 600;
+  }
+}
+
+// Candidate process
+.candidate-process {
+  // Form actions
+  ::v-deep .form-actions {
+    padding-top: rem(10px);
+
+    .btn {
+      max-width: rem(220px);
+      width: 100%;
+
+      + .btn {
+        margin-left: rem(20px);
+      }
+    }
+  }
+
+  // Flow options
+  .flow-opts {
+    position: relative;
+    margin-bottom: rem(30px);
+    padding: rem(10px);
+    background: $grey;
+    border-radius: rem(1px);
+
+    ::v-deep p {
+      line-height: rem(24px);
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    ::v-deep .loading {
+      padding: rem(0 0 10px 0);
+      color: $common-color;
+    }
+
+    .step-handler {
+      position: absolute;
+      top: rem(15px);
+      right: rem(10px);
+      cursor: pointer;
+      font-size: rem(20px);
+      color: $primary-color;
+    }
+
+    .dropdown-placeholder {
+      pointer-events: none;
+
+      .btn:after {
+        display: none;
+      }
+    }
+
+    ::v-deep .scheduled-interviews {
+      strong {
+        display: block;
+        margin-bottom: rem(10px);
+        color: $semi-black;
+      }
+
+      li {
+        margin: rem(3px 0);
+      }
+
+      .btn {
+        width: auto;
+        max-width: inherit;
+      }
+    }
+  }
+
+  ::v-deep .search-inside {
+    .d-flex {
+      flex-wrap: wrap;
+    }
+
+    .form-control {
+      flex: 1 0;
+    }
+
+    .btn {
+      width: rem(150px);
+      margin-left: rem(10px);
+
+      i {
+        padding-right: rem(6px);
+      }
+    }
+  }
+
+  // Selected flow
+  .selected-flow {
+    margin-top: rem(20px);
+
+    + .flow-feedback {
+      margin-top: rem(40px);
+    }
+  }
+
+  // Options
+  .opts {
+    ul,
+    li {
+      @include remove-list-style;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: rem(10px);
+      font-size: rem(18px);
+      line-height: rem(24px);
+      color: $semi-black;
+    }
+
+    .download-folder {
+      padding: 0;
+      line-height: rem(50px);
+    }
+  }
+
+  // Flow feedback
+  .flow-feedback {
+    @include remove-child-margin-bottom;
+
+    .title {
+      display: block;
+      margin-bottom: rem(20px);
+      font-size: rem(20px);
+      line-height: rem(27px);
+      font-weight: 600;
+      color: $primary-color;
+    }
+  }
+}
+
+.candidate-files {
+  padding: rem(0 10px 10px 10px);
+
+  ::v-deep table {
+    margin-bottom: 0;
+    background: $white;
+
+    td > a {
+      text-decoration: underline;
+    }
+
+    .rejected {
+      color: #d0021b;
+    }
+
+    .allowed {
+      color: #53b312;
+    }
+  }
+
+  ::v-deep .opts-dropdown {
+    .dropdown-menu {
+      transform: translate3d(0px, 21px, 0px);
+    }
+
+    .btn:after {
+      display: none !important;
+    }
+  }
+}
+
+// Stepper
+.stepper {
+  margin-bottom: rem(25px);
+
+  ul {
+    border: 1px solid $border-grey;
+    border-bottom: none;
+
+    li {
+      position: relative;
+      padding: rem(8px 36px 8px 8px) !important;
+      border-bottom: 1px solid $border-grey;
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: rem(8px);
+        @include vertical-middle;
+        width: rem(20px);
+        height: rem(20px);
+        border-radius: 50%;
+        font-family: $font-awesome;
+        font-size: rem(10px);
+        line-height: rem(20px);
+        font-weight: 900;
+        color: $white;
+        text-align: center;
+      }
+
+      &.checked:after {
+        background: #53b312;
+        content: '\f00c';
+      }
+      &.warn:after {
+        background: #ffc000;
+        content: '\f12a';
+      }
+      &.rejected:after {
+        background: #d0021b;
+        content: '\f00d';
+      }
+    }
+
+    + ul {
+      margin-top: rem(10px) !important;
+    }
+  }
+}

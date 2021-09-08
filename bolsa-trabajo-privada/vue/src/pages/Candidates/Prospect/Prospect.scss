@@ -1,0 +1,144 @@
+// Section title
+.section-title {
+  margin-bottom: rem(20px);
+}
+
+// Candidate data
+.candidate-data {
+  > div > div {
+    @include remove-child-margin-bottom;
+  }
+
+  // Topic
+  .topic {
+    margin-bottom: rem(40px);
+    @include remove-child-margin-bottom;
+
+    > strong {
+      display: block;
+      margin-bottom: rem(10px);
+      font-size: rem(18px);
+      line-height: rem(24px);
+      color: $semi-black;
+    }
+  }
+
+  .opts {
+    @media (max-width: 768px) {
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+// Personal data
+.personal-data {
+  ul,
+  li {
+    @include remove-list-style;
+  }
+
+  li {
+    margin-bottom: rem(5px);
+    font-size: rem(14px);
+    line-height: rem(19px);
+    font-weight: 700;
+    color: #4a4a4a;
+
+    span {
+      font-weight: 600;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Download resume
+.download-resume {
+  margin-bottom: rem(20px);
+
+  a {
+    display: block;
+    padding: rem(20px);
+    background: #f2f2f2;
+    border-radius: rem(1px);
+    text-align: center;
+    font-size: rem(14px);
+    line-height: rem(19px);
+    color: $semi-black;
+
+    i {
+      display: block;
+      margin-bottom: rem(10px);
+      font-size: rem(40px);
+      line-height: rem(40px);
+    }
+
+    &,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Other actions
+.other-actions {
+  ul,
+  li {
+    @include remove-list-style;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: rem(10px);
+    font-size: rem(18px);
+    line-height: rem(24px);
+    color: $semi-black;
+  }
+
+  ::v-deep .btn {
+    height: rem(40px);
+    margin-top: rem(5px);
+    padding: rem(0 10px);
+    line-height: rem(38px);
+    text-align: center;
+  }
+}
+
+//email edition controlers
+.email-edition{
+  display: flex;
+}
+
+.email-edition-input{
+  position: relative;
+  
+  input {
+    resize: horizontal;
+    width: 400px;
+    padding-right: 50px;
+  }
+
+  .fa-check {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    -webkit-text-stroke: 1px background-color;
+    color: #4A4A4A;
+    cursor: pointer;
+  }
+
+  .fa-times{
+    position: absolute;
+    right: -25px;
+    top: 10px;
+    color: #4A4A4A;
+    cursor: pointer;
+  }
+}
+
+.fa-pencil-alt{
+  color: #4A4A4A;
+  cursor: pointer;
+}

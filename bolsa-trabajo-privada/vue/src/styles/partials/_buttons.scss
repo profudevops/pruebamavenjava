@@ -1,0 +1,37 @@
+//
+// _buttons.scss
+//
+// It reflects the styles for the buttons
+//
+
+/**
+ * -------------------------
+ * @info Buttons
+ * -------------------------
+*/
+button.btn, a.btn {
+    height: 50px;
+    border-radius: 1px;
+
+    span {
+        margin-left: rem(5px);
+        vertical-align: middle;
+    }
+
+    &-sm {
+        padding: 0.25rem 1.25rem;
+        height: 35px;
+    }
+}
+
+/**
+ * -------------------------
+ * @info Buttons variants
+ * -------------------------
+*/
+.btn-primary {@include custom-button($btn-primary);}
+.btn-secondary {@include custom-button($btn-secondary);}
+.btn-bordered {@include custom-button($btn-bordered);}
+.btn-default {@include custom-button($btn-default);}
+.btn-danger {@include custom-button($btn-danger);}
+.btn-common {@include custom-button($btn-common);}

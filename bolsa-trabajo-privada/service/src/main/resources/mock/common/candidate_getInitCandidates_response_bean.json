@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "data": [
+    {
+      "idCandidato": "1",
+      "nombre": "Julio",
+      "apellidoMaterno": "Llamas",
+      "apellidoPaterno": "Moctezuma",
+      "nivelDeEstudio": "Kinder",
+      "telefono": "5522481070",
+      "vacante": "Desarrollador Back",
+      "estatus": "Rechazado"
+    },
+    {
+      "idCandidato": "2",
+      "nombre": "Julio",
+      "apellidoMaterno": "Arredondo",
+      "apellidoPaterno": "Serrano",
+      "nivelDeEstudio": "Primaria",
+      "telefono": "5522481111",
+      "vacante": "Desarrollador BACK",
+      "estatus": "Rechazado"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+
+<body>
+
+<th:block tiles:fragment="container">
+
+    <div id="error-flow" th:attr="data-json=${exceptionVO}"></div>
+    <div class="app-profuturo">
+        <div class="loader"></div>
+        <div class="content">
+            <form th:action="${flowExecutionUrl}" method="post" th:id="#{global.form.formExecution}" enctype="multipart/form-data">
+                <th:block tiles:include="content"/>
+            </form>
+        </div>
+    </div>
+
+</th:block>
+
+</body>
+</html>

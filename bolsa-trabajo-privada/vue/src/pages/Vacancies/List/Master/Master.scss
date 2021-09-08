@@ -1,0 +1,51 @@
+// Vacancies list
+.vacancies-list {
+  margin: rem(-10px);
+  flex-wrap: wrap;
+
+  a {
+    flex: 0 0 calc(33.3334% - 20px);
+    min-height: rem(150px);
+    margin: rem(10px);
+    background: $grey;
+    font-size: rem(14px);
+    line-height: rem(19px);
+    transition: background 0.35s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+
+    @media (max-width: 768px) {
+      flex: 0 0 calc(100% - 20px);
+    }
+
+    div {
+      display: block;
+      width: 100%;
+      padding: rem(20px);
+      color: $semi-black;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: rem(10px);
+      font-size: rem(20px);
+      line-height: rem(25px);
+      font-weight: 600;
+    }
+
+    span {
+      display: block;
+      margin-top: rem(5px);
+      font-weight: 400;
+    }
+
+    b {
+      font-size: rem(16px);
+      font-weight: 600;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background: darken($grey, 5%);
+    }
+  }
+}

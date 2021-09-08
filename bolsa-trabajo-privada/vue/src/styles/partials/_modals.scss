@@ -1,0 +1,309 @@
+//
+// _modals.scss
+//
+// It reflects the styles for the modals
+//
+.common-modal {
+    .modal-dialog {
+        max-width: rem(660px);
+    }
+
+    .modal-header {
+        padding: rem(20px);
+        border-bottom: none;
+
+        // Close
+        .close {
+            text-indent: -9999em;
+            font-size: 0;
+
+            &:before {
+                font-family: $font-awesome;
+                content: "\f00d";
+                font-size: rem(24px);
+                line-height: rem(24px);
+                font-weight: 900;
+                color: $common-color;
+            }
+
+            &, &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .modal-title {
+        font-size: rem(20px);
+        line-height: rem(27px);
+        font-weight: 600;
+        color: $primary-color;
+    }
+
+    .modal-content {
+        border-radius: rem(1px);
+        border: none;
+        font-size: rem(18px);
+        line-height: rem(24px);
+        color: $semi-black;
+    }
+
+    .modal-body,
+    .modal-footer {
+        padding: rem(0 20px 20px 20px);
+    }
+
+    .modal-body {
+
+        // Loading
+        .loading {
+            padding: rem(20px);
+            text-align: center;
+            font-size: rem(18px);
+            line-height: rem(26px);
+            color: $common-color;
+        }
+    }
+
+    .modal-footer {
+        border-top: none;
+        border-radius: 0;
+
+        .btn {
+            min-width: rem(140px);
+        }
+    }
+
+    .form-actions {
+        padding-top: rem(10px);
+        padding-bottom: rem(20px);
+        text-align: right;
+
+        .btn {
+            min-width: rem(220px);
+        }
+    }
+}
+
+// Confirm dialog
+.confirm-dialog {
+    .modal-dialog {
+        width: rem(460px);
+    }
+
+    .accept-document-confirm-footer {
+        padding: rem(20px 0 0 0);
+    }
+}
+
+// Opacity
+.modal-backdrop {
+    background: $primary-color;
+
+    &:not(.show):not(.fade) {
+        opacity: .75;
+    }
+}
+
+// Score modal
+.score-modal {
+    .modal-dialog {
+        max-width: rem(460px);
+    }
+}
+
+// Feedback modal
+.feedback-modal {
+    p {
+        margin-bottom: 0;
+        font-size: rem(18px);
+        line-height: rem(24px);
+    }
+
+    ul, li {
+        @include remove-list-style;
+    }
+
+    .list {
+        margin-top: rem(26px);
+        margin-bottom: rem(20px);
+    }
+
+    .list ul {
+        background: $grey;
+
+        li {
+            flex: 1 0 25%;
+            padding: rem(14px 0 4px 0);
+            cursor: pointer;
+            vertical-align: top;
+            font-size: rem(12px);
+            line-height: rem(17px);
+            color: $common-color;
+            text-align: center;
+            border-bottom: 2px solid $grey;
+            transition: background .35s;
+
+            &.selected {
+                color: $white;
+            }
+            &.fit {
+                border-bottom-color: #53B312;
+
+                &.selected {
+                    background: #53B312;
+                }
+            }
+            &.not-fit {
+                border-bottom-color: #D0021B;
+
+                &.selected {
+                    background: #D0021B;
+                }
+            }
+
+            &:hover {
+                background: darken($grey, 3%)
+            }
+        }
+
+        i {
+            display: block;
+            margin-bottom: rem(9px);
+            font-size: rem(16px);
+            line-height: rem(16px);
+        }
+    }
+
+    .tagging {
+        span {
+            display: block;
+            margin-bottom: rem(10px);
+        }
+
+        span, li {
+            font-size: rem(14px);
+            line-height: rem(19px);
+        }
+
+        ul {
+            margin-top: rem(-5px);
+            font-size: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin: rem(5px 5px 0 0);
+            padding: rem(5px 20px);
+            vertical-align: top;
+            background-color: $grey;
+            cursor: pointer;
+            transition: background .35s;
+
+            &.selected {
+                background: #3EB6BB;
+                color: $white;
+            }
+        }
+    }
+
+    .actions {
+        margin-top: rem(30px);
+        text-align: right;
+
+        .btn {
+            min-width: rem(140px);
+        }
+    }
+}
+
+// Reject document modal
+#reject-document-modal {
+    p {
+        font-size: rem(18px);
+        line-height: rem(24px);
+    }
+
+    .form-group legend {
+        margin-bottom: 0;
+    }
+
+    .form-actions {
+        padding-bottom: 0;
+
+        .btn {
+            min-width: rem(140px);
+        }
+    }
+}
+
+// Hiring form modal
+#hiring-form-modal {
+    .modal-dialog {
+        max-width: rem(700px);
+    }
+
+    ::v-deep {
+
+        // Section title
+        .section-title {
+            margin-bottom: rem(25px);
+        }
+
+        // Tabs
+        .tabs {
+            .nav-link {
+                padding: rem(8px 16px);
+            }
+        }
+
+        .form-group {
+            margin-bottom: rem(10px);
+            padding-bottom: rem(10px);
+            border-bottom: 1px solid $grey;
+
+            label {
+                margin-bottom: 0;
+                font-size: rem(14px);
+                font-weight: 600;
+                color: $black;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            + strong {
+                margin-top: rem(30px);
+            }
+        }
+
+        .form-control {
+            height: auto;
+            padding: 0;
+            border: none;
+            background: $white;
+            font-size: rem(14px);
+        }
+
+        .section-subtitle {
+            margin-top: rem(30px);
+
+            p {
+                margin-top: rem(10px);
+                font-size: rem(16px);
+            }
+        }
+    }
+}
+
+// Vacancies codes modal
+#vacancy-codes {
+    textarea {
+        position: absolute;
+        top: -9999em;
+        right: -9999em;
+        width: 0;
+        height: 0;
+        z-index: -1;
+    }
+}

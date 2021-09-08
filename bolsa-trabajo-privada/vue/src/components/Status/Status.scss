@@ -1,0 +1,20 @@
+.status {
+    font-size: rem(10px);
+    margin-right: 0.25rem;
+
+    &-yellow {
+        color: $yellow-status;
+    }
+
+    &-green {
+        color: $green-status;
+    }
+
+    &-blue {
+        color: $yellow-status;
+    }
+
+    &-red {
+        color: $red-status;
+    }
+}

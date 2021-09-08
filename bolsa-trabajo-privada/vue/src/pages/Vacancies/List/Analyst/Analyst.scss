@@ -1,0 +1,29 @@
+// Results
+.results {
+  margin-bottom: rem(20px);
+
+  table {
+    margin-bottom: 0;
+
+    a {
+      font-size: rem(14px);
+      line-height: rem(19px);
+      font-weight: 600;
+    }
+  }
+
+  .top-table {
+    padding: rem(14px);
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $primary-color;
+    border-bottom: none;
+    font-weight: 600;
+    color: $semi-black;
+
+    .btn {
+      min-width: rem(120px);
+      margin-left: rem(16px);
+    }
+  }
+}

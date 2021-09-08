@@ -1,0 +1,35 @@
+.admin {
+  .layout {
+    > .row > div {
+      /* Sidebar */
+      &:first-child {
+        flex: 0 0 260px;
+        max-width: 260px;
+        padding-right: 0px;
+        border-right: 1px solid #ccc;
+
+        @media (max-width: 768px) {
+          position: absolute;
+          transform: translate(-100%);
+          transition: 250ms ease-in all;
+          z-index: 100;
+          background-color: white;
+          width: 100%;
+          max-width: initial;
+
+          &.open {
+            transform: translate(0%);
+          }
+        }
+      }
+    }
+  }
+
+  .content-view {
+    padding: rem(25px 20px);
+  }
+
+  .sidebar-wrapper {
+    border-right: 1px solid #ccc;
+  }
+}

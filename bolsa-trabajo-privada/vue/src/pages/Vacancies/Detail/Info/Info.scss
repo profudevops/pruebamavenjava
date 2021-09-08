@@ -1,0 +1,31 @@
+.vacancy-detail {
+    
+  .info {
+    font-size: rem(14px);
+    margin-bottom: rem(25px);
+
+    p {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  .without-candidates {
+    font-size: rem(18px);
+    color: $semi-black;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    line-height: 22px;
+  }
+
+  h3 {
+    font-size: rem(18px);
+    font-weight: bold;
+    color: $semi-black;
+    margin-bottom: rem(14px);
+  }
+
+  ::v-deep .pagination {
+    margin-top: rem(25px);
+  }
+}

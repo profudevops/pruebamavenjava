@@ -1,0 +1,195 @@
+//
+// _scaffolding.scss
+//
+// It reflects the styles for general elements
+//
+
+/**
+ * -------------------------
+ * @section Generals
+ * @info    This properties are for entire front-end and we could use whenever
+ * -------------------------
+*/
+// Generals
+* {
+  @include box-sizing(border-box);
+  @include smoothing();
+
+  &,
+  &:focus {
+    outline: none !important;
+  }
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+html {
+  font-size: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  -webkit-text-size-adjust: none;
+}
+
+body {
+  min-width: rem(1044px);
+  font-family: $font-base;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  background-color: $body-bg;
+  color: $common-color;
+
+  &.full-page {
+    #app,
+    #content {
+      height: 100%;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-width: auto;
+  }
+}
+
+/**
+ * -------------------------
+ * @info Misc
+ * -------------------------
+*/
+img {
+  -ms-interpolation-mode: bicubic;
+  border: none;
+
+  // Grayscale
+  // See: http://demosthenes.info/blog/532/Convert-Images-To-Black-And-White-With-CSS
+  //      http://demosthenes.info/blog/540/Animating-CSS3-Image-Filters
+  &.desaturate {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: url(#greyscale);
+    filter: gray;
+    @include transition(all 0.35s);
+  }
+}
+
+/**
+ * -------------------------
+ * @info Content
+ * -------------------------
+*/
+#content {
+  height: 100%;
+  padding: 0px;
+}
+
+/**
+ * -------------------------
+ * @info Container
+ * -------------------------
+*/
+.container,
+.container-fluid {
+  min-width: rem(1024px);
+
+  @media (max-width: 768px) {
+    min-width: initial;
+  }
+}
+
+/**
+ * Section title form
+*/
+
+.section-title-form {
+  display: block;
+  margin-bottom: rem(15px);
+  font-size: rem(20px);
+  line-height: rem(28px);
+  color: #1a1717;
+}
+
+.error-msg {
+  margin: 0;
+  padding-right: 2.5rem;
+  line-height: 2.0625rem;
+  color: #00427a;
+  font-weight: bold;
+}
+
+/*@keyframes animax {
+  0% {
+    color: #427eb1;
+  }
+
+  100% {
+    color: #00427a;
+  }
+}*/
+
+.loading {
+  margin: 0;
+  padding-right: 2.5rem;
+  line-height: 2.0625rem;
+  color: #00427a;
+  text-align: center;
+  //animation: animax 650ms ease-in-out infinite;
+
+  p {
+    font-weight: bold;
+  }
+
+  i {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.analyst-blank-box {
+  border: 1px solid #00427a;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+.alert-modal-msg {
+  font-size: 1rem;
+  border-top: 1px solid #00427a;
+  border-bottom: 1px solid #00427a;
+  padding: 1rem 0.5rem;
+  background: #6c757d1f;
+
+  strong {
+    color: #00427a;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  span {
+    font-style: italic;
+    color: #00427a;
+  }
+}
+
+.table-responsive {
+  overflow: visible;
+}
+
+.input-group {
+  .vdp-datepicker {
+    .input-group-prepend {
+      left: inherit;
+      right: 0.125rem;
+      top: 23%;
+
+      .input-group-text{
+        background-color: transparent;
+        border: none;
+      }
+    }
+  }
+}

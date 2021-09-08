@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+<div tiles:fragment="styles" th:remove="tag">
+    <link rel="stylesheet" type="text/css" href="#" th:href="@{/statics/css/stylesheets/profuturo.min.css}" />
+</div>
+
+<div tiles:fragment="content" th:remove="tag">
+
+    <div class="row container-login"></div>
+
+    <div class="container margin-top-container">
+
+
+
+    </div>
+
+</div>
+
+<div tiles:fragment="scripts" th:remove="tag">
+</div>
+
+</body>
+</html>

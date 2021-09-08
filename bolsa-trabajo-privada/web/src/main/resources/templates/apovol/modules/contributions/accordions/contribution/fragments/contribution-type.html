@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</p>
+
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 border-right">
+
+            <input type="radio" id="rd-recurrent" class="radio-select"
+                   th:checked="${apovolVO.contributionFlowVO.currentContributionVO.selectedType == 0}"
+                   data-event-id="changeContributionType"
+                   data-fragment-container="accounts-contribution"
+                   data-fragment-render="accounts-contribution"
+                   data-value="0"/>
+            <label for="rd-recurrent"><span></span>Recurrente</label>
+            <p class="description-type-diversification">
+                Aportación periódica con cargo automático a tu cuenta bancaria. Programa la frecuencia (semanal, quincenal, mensual) y el monto que desees.
+            </p>
+
+            <div class="clear-both">&nbsp;</div>
+
+            <input type="radio" id="rd-only" class="radio-select"
+                   th:checked="${apovolVO.contributionFlowVO.currentContributionVO.selectedType == 1}"
+                   data-event-id="changeContributionType"
+                   data-fragment-container="accounts-contribution"
+                   data-fragment-render="accounts-contribution"
+                   data-value="1"/>
+            <label for="rd-only"><span></span>Única</label>
+            <p class="description-type-diversification">
+                Aportación que se hace una sola vez con cargo a tu cuenta bancaria. Elige la fecha y el monto que desees.
+            </p>
+
+            <input type="hidden" value="0" id="hd-contribution-type" name="contributionFlowVO.currentContributionVO.selectedType"/>
+
+        </div>
+
+        <div id="accounts-contribution" class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
+             tiles:include="accounts-contribution"></div>
+
+    </div>
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</p>
+
+    <div id="accordion-error-flow" th:attr="data-json=${exceptionVO}"></div>
+
+</th:block>
+
+</body>
+</html>

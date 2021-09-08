@@ -1,0 +1,41 @@
+{
+  "success": "true",
+  "data": [
+    {
+      "id": "1",
+      "description": "Vacante 1"
+    },
+    {
+      "id": "2",
+      "description": "Vacante 2"
+    },
+    {
+      "id": "3",
+      "description": "Vacante 3"
+    },
+    {
+      "id": "4",
+      "description": "Vacante 4"
+    },
+    {
+      "id": "5",
+      "description": "Vacante 5"
+    },
+    {
+      "id": "6",
+      "description": "Vacante 6"
+    },
+    {
+      "id": "7",
+      "description": "Vacante 7"
+    },
+    {
+      "id": "8",
+      "description": "Vacante 8"
+    },
+    {
+      "id": "9",
+      "description": "Vacante 9"
+    }
+  ]
+}

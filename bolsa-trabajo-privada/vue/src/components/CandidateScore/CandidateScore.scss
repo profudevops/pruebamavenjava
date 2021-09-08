@@ -1,0 +1,84 @@
+// Candidate score
+.candidate-score {
+  margin-bottom: rem(25px);
+
+  ul, li {
+    @include remove-list-style;
+  }
+
+  // Score
+  .score {
+    padding: rem(10px);
+    text-align: center;
+    background: #808080;
+    color: $white;
+
+    span, strong {
+      display: block;
+    }
+
+    span {
+      margin-bottom: rem(10px);
+      font-size: rem(14px);
+      line-height: rem(19px);
+    }
+
+    i {
+      font-size: rem(20px);
+    }
+
+    strong {
+      margin-top: rem(5px);
+      font-size: rem(20px);
+      line-height: rem(27px);
+      font-weight: 600;
+    }
+  }
+
+  // Status
+  .status {
+    padding: rem(5px 10px);
+    font-size: rem(14px);
+    line-height: rem(19px);
+    color: $semi-black;
+    background: #FFF7E6;
+
+    li {
+      padding: rem(5px 0);
+    }
+  }
+
+  // Types
+  &.ban {
+    .score {
+      background: #D0021B;
+    }
+    .status {
+      background: #FFE6E9;
+    }
+  }
+  &.star {
+    .score {
+      background: #53B312;
+    }
+    .status {
+      background: #F0FFE6;
+    }
+  }
+  &.smile {
+    .score {
+      background: #99ce31;
+    }
+    .status {
+      background: #F0FFE6;
+    }
+  }
+  &.crown {
+    .score {
+      background: #FDBD2C;
+    }
+    .status {
+      background: #FFF7E6;
+    }
+  }
+}

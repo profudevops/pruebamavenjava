@@ -1,0 +1,31 @@
+// Results
+.results {
+  margin-bottom: rem(20px);
+
+  table {
+    margin-bottom: 0;
+
+    // Score
+    .score {
+      i {
+        padding-right: rem(5px);
+        color: $primary-color;
+      }
+
+      &.not-fit {
+        &, i {
+          color: $common-color;
+        }
+      }
+    }
+  }
+
+  ::v-deep .opts-dropdown .btn {
+    &, &:active,
+    &:not(:disabled):not(.disabled):active:focus {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

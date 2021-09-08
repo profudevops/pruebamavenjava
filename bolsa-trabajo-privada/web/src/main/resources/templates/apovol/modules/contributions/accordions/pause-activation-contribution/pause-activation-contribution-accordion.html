@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <h1 class="text-center">
+        Pausar y Reactivar tu Aportaci&oacute;n Voluntaria
+    </h1>
+
+    <p class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 text-center margin-left-offset-1">
+        Deber&aacute;s elegir la fecha de pausa y reactivaci&oacute;n del cargo de tu Aportaci&oacute;n Voluntaria a tu cuenta bancaria.
+    </p>
+
+    <div class="clear-both">&nbsp;</div>
+
+    <div id="accordion">
+
+        <h3>Paso 1 - Detalle de pausa / reactivaci&oacute;n</h3>
+        <div id="step-0">
+
+            <div class="loader-accordion"></div>
+
+            <div id="pause-activation-detail" tiles:include="pause-activation-detail"></div>
+
+            <p class="text-center clear-both">
+                <button id="btn-next-detail" class="normal btn-step-accordion validate"
+                        data-step="next"
+                        data-container-validation="pause-activation-detail"
+                        data-event-id="loadResumeStep"
+                        data-fragment-render="pause-reactivation-resume"
+                        data-fragment-container="pause-reactivation-resume">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 2 - Resumen de pausa / reactivaci&oacute;n</h3>
+        <div id="step-1">
+
+            <div class="loader-accordion"></div>
+
+            <div id="pause-reactivation-resume" tiles:include="pause-reactivation-resume"></div>
+
+            <p class="text-center clear-both">
+                <button class="normal btn-step-accordion" data-step="back">Atr&aacute;s</button>
+                <button class="confirm"
+                        data-step="next"
+                        data-event-id="loadSuccessStep"
+                        data-fragment-container="pause-activation-complete"
+                        data-fragment-render="pause-activation-complete">Autorizar</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 3 - Aportación pausada</h3>
+        <div id="step-2">
+
+            <div id="pause-activation-complete" tiles:include="pause-activation-complete"></div>
+
+            <p class="text-center clear-both">
+                <button id="lnk-my-account" class="yellow width-auto">Ir a la p&aacute;gina principal</button>
+                <br/>
+                <br/>
+                <a class="btn-step" data-event-id="backToInit">Consultar mis Aportaciones Voluntarias</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <input type="hidden" id="view" value="pause-activation-contribution"/>
+
+</th:block>
+
+</body>
+</html>

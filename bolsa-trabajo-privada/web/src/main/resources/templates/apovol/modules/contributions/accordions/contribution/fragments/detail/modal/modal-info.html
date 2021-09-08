@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <div class="info-modal" id="info-apovol">
+
+        <div class="apovol-info">
+
+            <div class="close-modal-apovol" id="close-modal-apovol"></div>
+
+            <div class="title">Características fondos Aportaciones Voluntarias</div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="info-panel w4" th:each="infoContribution: ${apovolVO.fundInformation}">
+                        <img th:src="@{/statics/images/icons/} + ${infoContribution.icon}" />
+                        <div class="blue-text text-center" th:utext="${infoContribution.fundName}"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="info-panel w4 no-icon border-right" th:each="infoContribution: ${apovolVO.fundInformation}">
+
+                        <div class="info-title text-left">Rendimiento</div>
+                        <div class="info-data text-left" th:utext="${infoContribution.performance + '%'}"></div>
+
+                        <div class="info-title text-left">Comisiones</div>
+                        <div class="info-data text-left" th:utext="${infoContribution.commissions + '%'}"></div>
+
+                        <div class="info-title text-left">Características</div>
+                        <div class="info-data small text-left" th:utext="${infoContribution.features}"></div>
+
+                        <div class="info-title text-left">Calificación</div>
+                        <div class="info-data small text-left" th:utext="${infoContribution.classification}"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-both">&nbsp;</div>
+
+            <div class="info-footer">
+                <h3 class="text-center text-underline"><span>Beneficios</span></h3>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 icon-dot-list">
+                        Rendimientos superiores a los de otros instrumentos del mercado
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 icon-dot-list">
+                        Inversiones supervisadas por CONSAR
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 icon-dot-list">
+                        Opción de programar la aportación semanal, quincenal o mensual o cargo único
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 icon-dot-list">
+                        Modificar monto, frecuencia y fondo de la aportación voluntaria
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 icon-dot-list">
+                        Garantizar un mejor futuro
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 icon-dot-list">
+                        Monitores de las aportaciones en tiempo real (portal y app Profuturo Móvil)
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-info">
+                Sección informativa de Siefores adicionales al cierre de <th:block th:if="${apovolVO.fundNotificationData != null}" th:utext="${apovolVO.fundNotificationData.month}"/> <th:block th:if="${apovolVO.fundNotificationData != null}" th:utext="${apovolVO.fundNotificationData.year}"/>. Fuente CONSAR.
+            </div>
+
+        </div>
+
+    </div>
+
+</th:block>
+
+</body>
+</html>

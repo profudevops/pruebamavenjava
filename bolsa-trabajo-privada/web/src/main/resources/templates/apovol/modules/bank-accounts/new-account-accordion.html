@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <h1 class="text-center">
+        Agregar cuenta bancaria
+    </h1>
+
+    <div id="accordion">
+
+        <h3>Paso 1 - Cuenta bancaria</h3>
+        <div id="step-0">
+
+            <div class="loader-accordion"></div>
+
+            <div id="bank-account-add" tiles:include="bank-account-add"></div>
+
+            <p class="text-center clear-both">
+                <button id="btn-next-bank-account"
+                        class="normal processing validate" disabled="disabled"
+                        data-container-validation="bank-account-add"
+                        data-validate-enable="required"
+                        data-step="next"
+                        data-event-id="successStep"
+                        data-fragment-container="confirmation-new-account"
+                        data-fragment-render="confirmation-new-account">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 2 - Cuenta registrada</h3>
+        <div id="step-1">
+
+            <div id="confirmation-new-account" tiles:include="confirmation-new-account"></div>
+
+            <p class="text-center clear-both">
+                <button id="lnk-my-account" class="confirm yellow width-auto">Ir a la página principal</button>
+            </p>
+
+        </div>
+
+    </div>
+
+    <input type="hidden" id="view" value="new-bank-account" />
+
+</th:block>
+
+</body>
+</html>

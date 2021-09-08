@@ -1,0 +1,50 @@
+// Feedback
+.feedback {
+    position: relative;
+    margin-bottom: rem(20px);
+    padding: rem(10px 10px 20px 10px);
+    border: 1px solid #F2F2F2;
+    border-radius: 1px;
+    font-size: rem(16px);
+    line-height: rem(22px);
+    color: #979797;
+
+    // Title
+    .title {
+        padding-right: rem(80px);
+        font-size: rem(18px);
+        line-height: rem(28px);
+        color: $black;
+        font-weight: 600;
+
+        i {
+            padding-right: rem(5px);
+            font-size: rem(18px);
+            line-height: rem(18px);
+        }
+    }
+
+    // Edit
+    .edit {
+        position: absolute;
+        top: rem(10px);
+        right: rem(10px);
+        font-size: rem(16px);
+        line-height: rem(28px);
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+    // Date
+    .date {
+        margin-bottom: rem(10px);
+        font-size: rem(12px);
+        line-height: rem(17px);
+    }
+
+    // Note
+    .note {
+        margin-top: rem(10px);
+        color: #1A1717;
+    }
+}

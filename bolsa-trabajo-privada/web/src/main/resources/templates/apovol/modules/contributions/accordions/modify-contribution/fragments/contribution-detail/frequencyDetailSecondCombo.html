@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <th:block th:if="${apovolVO.frequencyDataVO.secondFortnightDays != null}">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" th:if="not ${apovolVO.frequencyDataVO.secondFortnightDays.isEmpty()}">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 co-sm-12 col-xs-12">
+                    <span class="error-label"></span>
+                    <span class="label-input">&nbsp;</span>
+                    <select id="sel-frequency-second-combo-days" class="full"
+                            name="contributionFlowVO.currentContributionVO.frequencySelectionVO.secondFortnightDay">
+                        <option value="0">Selecciona día</option>
+                        <option th:each="frecuency: ${apovolVO.frequencyDataVO.secondFortnightDays}"
+                                th:selected="${frecuency.value.id == apovolVO.contributionFlowVO.currentContributionVO.frequencySelectionVO.secondFortnightDay}"
+                                th:utext="${frecuency.value.description}" th:value="${frecuency.value.id}"></option>
+                    </select>
+
+                </div>
+            </div>
+
+        </div>
+    </th:block>
+
+
+
+    <div id="accordion-error-flow" th:attr="data-json=${exceptionVO}"></div>
+
+</th:block>
+
+</body>
+</html>

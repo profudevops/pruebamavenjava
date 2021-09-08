@@ -1,0 +1,213 @@
+//
+// _variables.scss
+//
+// It reflects all variables used in entire site
+//
+
+//
+// -------------------------
+// @section Colors
+// @info    All about colors
+// -------------------------
+//
+// Common
+$black: #000 !default;
+$semi-black: #1a1717 !default;
+$white: #fff !default;
+$light-black: #374047 !default;
+$red: #f00 !default;
+$green: #090 !default;
+$orange: #ef7d00 !default;
+$blue: #00427a !default;
+
+// Status
+$green-status: #53b312 !default;
+$yellow-status: #fdbd2c !default;
+$blue-status: #0181c4 !default;
+$red-status: #d0021b !default;
+
+// Secondary
+$grey: #f2f2f2 !default;
+$light-grey: #374037 !default;
+$border-grey: #d9d9d9 !default;
+$bg-grey-table: #f6faff !default;
+$mine-shaft: #3f3f3f !default;
+$dove-gray: #626262 !default;
+$dusty-gray: #999 !default;
+$silver: #ccc !default;
+$boulder: #777 !default;
+
+// Social
+$fb-color: #3b5998 !default;
+$tw-color: #00aced !default;
+$ig-color: #517fa4 !default;
+$ln-color: #007bb6 !default;
+$pr-color: #d01002 !default;
+
+// Project colors
+$primary-color: #00427a !default;
+$secondary-color: #ffc000 !default;
+
+// Scafolding
+$body-bg: $white !default;
+$common-color: #676767 !default;
+
+//
+// -------------------------
+// @section Buttons
+// @info    All about buttons
+// -------------------------
+//
+// Primary
+$btn-primary: (
+  color: $white,
+  bg: $primary-color,
+  border: $primary-color,
+  hover-color: $white,
+  hover-bg: lighten($primary-color, 5%),
+  hover-border: lighten($primary-color, 5%),
+  active-color: $white,
+  active-bg: lighten($primary-color, 10%),
+  active-border: lighten($primary-color, 10%),
+  disabled-color: $common-color,
+  disabled-bg: #d9d9d9,
+  disabled-border: #d9d9d9
+) !default;
+
+// Secondary
+$btn-secondary: (
+  color: #1a1717,
+  bg: $secondary-color,
+  border: $secondary-color,
+  hover-color: #1a1717,
+  hover-bg: lighten($secondary-color, 5%),
+  hover-border: lighten($secondary-color, 5%),
+  active-color: #1a1717,
+  active-bg: lighten($secondary-color, 10%),
+  active-border: lighten($secondary-color, 10%),
+  disabled-color: $common-color,
+  disabled-bg: #d9d9d9,
+  disabled-border: #d9d9d9
+) !default;
+
+// Bordered
+$btn-bordered: (
+  color: $primary-color,
+  bg: $white,
+  border: $primary-color,
+  hover-color: darken($primary-color, 10%),
+  hover-bg: darken($white, 5%),
+  hover-border: darken($primary-color, 10%),
+  active-color: darken($primary-color, 20%),
+  active-bg: darken($white, 10%),
+  active-border: darken($primary-color, 20%),
+  disabled-color: $common-color,
+  disabled-bg: #d9d9d9,
+  disabled-border: #d9d9d9
+) !default;
+
+// Default
+$btn-default: (
+  color: #1a1717,
+  bg: #f2f2f2,
+  border: #f2f2f2,
+  hover-color: #1a1717,
+  hover-bg: lighten(#f2f2f2, 5%),
+  hover-border: lighten(#f2f2f2, 5%),
+  active-color: #1a1717,
+  active-bg: lighten(#f2f2f2, 10%),
+  active-border: lighten(#f2f2f2, 10%),
+  disabled-color: $common-color,
+  disabled-bg: #d9d9d9,
+  disabled-border: #d9d9d9
+) !default;
+
+// Danger
+$btn-danger: (
+  color: $white,
+  bg: #d0021b,
+  border: #d0021b,
+  hover-color: $white,
+  hover-bg: lighten(#d0021b, 5%),
+  hover-border: lighten(#d0021b, 5%),
+  active-color: $white,
+  active-bg: lighten(#d0021b, 10%),
+  active-border: lighten(#d0021b, 10%),
+  disabled-color: $common-color,
+  disabled-bg: #d9d9d9,
+  disabled-border: #d9d9d9
+) !default;
+
+// Common
+$btn-common: (
+  color: $common-color,
+  bg: $grey,
+  border: $grey,
+  hover-color: $common-color,
+  hover-bg: darken($grey, 5%),
+  hover-border: darken($grey, 5%),
+  active-color: $common-color,
+  active-bg: darken($grey, 10%),
+  active-border: darken($grey, 10%),
+  disabled-color: #d9d9d9,
+  disabled-bg: $white,
+  disabled-border: #d9d9d9
+) !default;
+
+//
+// -------------------------
+// @section Typography
+// @info    All about typography
+// -------------------------
+//
+$font-base: 'Open Sans', sans-serif !default;
+$font-awesome: 'Font Awesome 5 Free' !default;
+
+//
+// -------------------------
+// @section Sizes
+// @info    All about sizes
+// -------------------------
+//
+// REM
+$rem-baseline: 16px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+
+// Screen sizes
+$responsive: true !default;
+$breakpoint-xs: 320px !default; // Extra small
+$breakpoint-sm: 576px !default; // Mobile
+$breakpoint-md: 768px !default; // Tablet
+$breakpoint-lg: 992px !default; // Desktop
+$breakpoint-xl: 1200px !default; // Large desktop
+$grid-gutter-width: 20px !default;
+$container-max-widths: (
+  lg: 980px,
+  xl: 980px
+) !default;
+
+// Responsive breakpoints
+$xs: (
+  max: $breakpoint-sm - 1
+);
+$sm: (
+  min: $breakpoint-sm
+);
+$md: (
+  min: $breakpoint-md
+);
+$lg: (
+  min: $breakpoint-lg
+);
+$xl: (
+  min: $breakpoint-xl
+);
+$sm-only: (
+  min: map-get($md, min),
+  max: map-get($lg, min) - 1
+);
+$md-only: (
+  min: map-get($lg, min),
+  max: map-get($xl, min) - 1
+);

@@ -1,0 +1,25 @@
+// Section title
+.section-title {
+  margin-bottom: rem(30px);
+}
+
+// Field
+.field {
+  @include remove-child-margin-bottom;
+  margin-bottom: rem(30px);
+
+  ::v-deep .b-form-file {
+    margin-bottom: rem(20px);
+
+    input.custom-file-input ~ .custom-file-label[data-browse]:after {
+      content: "Examinar";
+      width: auto;
+    }
+  }
+
+  .show-image {
+    display: inline-block;
+    margin-top: rem(5px);
+    font-size: rem(14px);
+  }
+}

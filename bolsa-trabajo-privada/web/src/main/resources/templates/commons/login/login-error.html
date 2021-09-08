@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<body>
+<th:block tiles:fragment="content">
+
+    <style>
+        #app-auth{
+            box-sizing:border-box;
+            padding:128px 15px;
+            max-width:960px;
+            margin: 20px auto;
+            height:300px;
+            font-family:Arial,serif;
+            font-size:26px;
+            text-align:center
+        }
+    </style>
+
+    <div id='app-auth'>Lo sentimos, hubo un error en la aplicación, por favor inténtalo más tarde.</div>
+
+    <script type="text/javascript">
+        setTimeout(function(){
+            location.reload();
+        }, 300);
+    </script>
+
+</th:block>
+</body>
+</html>

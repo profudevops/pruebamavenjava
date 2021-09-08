@@ -1,0 +1,38 @@
+.header {
+  border-bottom: 1px solid #d9d9d9;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+
+    span,
+    strong {
+      margin-right: 0.25rem;
+    }
+
+    a {
+      color: $light-grey;
+    }
+  }
+
+  .profile {
+    color: $semi-black;
+
+    i {
+      margin-right: 0.25rem;
+    }
+  }
+
+  .menu-mobile {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .menu-mobile {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <h1 class="text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">Transferencia SPEI incompleta</h1>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+
+    <div class="clear-both"></div>
+
+    <div id="accordion">
+
+        <h3>Paso 1 - Selección de cuenta bancaria</h3>
+        <div id="step-0">
+
+            <div class="loader-accordion"></div>
+
+            <div id="spei-bank-account" tiles:include="spei-bank-account"></div>
+
+            <p class="text-center">
+                <button id="btn-next-complete-spei-bank-account"
+                        class="normal btn-step-accordion"
+                        disabled="disabled"
+                        data-step="next"
+                        data-event-id="loadDetailStep"
+                        data-fragment-container="spei-detail"
+                        data-fragment-render="spei-detail">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 2 - Detalle de aportación</h3>
+        <div id="step-1">
+
+            <div class="loader-accordion"></div>
+
+            <div id="spei-detail" tiles:include="spei-detail"></div>
+
+            <p class="text-center">
+                <button class="normal btn-step-accordion" data-step="back">Atrás</button>
+                <button id="btn-next-detail"
+                        class="normal"
+                        data-container-validation="spei-detail"
+                        data-step="next"
+                        data-event-id="loadSuccessStep"
+                        data-fragment-render="spei-confirmation"
+                        data-fragment-container="spei-confirmation">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 3 - Transferencia SPEI</h3>
+        <div id="step-2">
+
+            <div id="spei-confirmation" tiles:include="spei-confirmation"></div>
+
+            <p class="text-center">
+                <button class="normal btn-step" data-event-id="back"
+                        th:if="${apovolVO.speiFlowVO.hasMoreTransfers}">Atrás</button>
+                <button id="lnk-my-account" class="confirm yellow width-auto">Ir a la página principal</button>
+            </p>
+
+        </div>
+
+    </div>
+
+    <input type="hidden" id="view" value="complete-transfer-spei" />
+
+</th:block>
+
+</body>
+</html>

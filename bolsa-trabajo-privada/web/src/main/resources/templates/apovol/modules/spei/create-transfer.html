@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        Realiza aportaciones voluntarias mediante una transferencia SPEI desde el portal de tu banco. Elige el monto y los fondos en los que deseas ahorrar y te daremos un número de referencia para que realices la operación.
+    </p>
+
+    <div class="width-full clear-both">&nbsp;</div>
+
+    <th:block th:if="${apovolVO.speiFlowVO.hasIncompleteSPEI}">
+
+        <div class="message-error col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+            IMPORTANTE: Tienes una o varias transferencias SPEI incompletas.
+            <a id="lnk-complete-spei-transfer" class="btn-step" data-event-id="completeTransfer">Elegir fondos</a>
+        </div>
+
+        <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</p>
+
+    </th:block>
+
+    <div class="width-full clear-both"></div>
+
+    <div id="accordion">
+
+        <h3>Paso 1 - Detalle de aportación</h3>
+        <div id="step-0">
+
+            <div class="loader-accordion"></div>
+
+            <div id="spei-detail" tiles:include="spei-detail"></div>
+
+            <p class="text-center">
+                <button id="btn-next-detail" class="normal"
+                        data-container-validation="spei-detail"
+                        data-step="next"
+                        data-event-id="loadBankingInstructionStep"
+                        data-fragment-render="spei-confirmation"
+                        data-fragment-container="spei-confirmation">Siguiente</button>
+            </p>
+
+        </div>
+
+        <h3>Paso 2 - Transferencia SPEI</h3>
+        <div id="step-1">
+
+            <div id="spei-confirmation" tiles:include="spei-confirmation"></div>
+
+            <p class="text-center">
+                <button class="normal btn-step-accordion" data-step="back">Atrás</button>
+                <button id="lnk-my-account" class="confirm yellow width-auto">Ir a la página principal</button>
+            </p>
+
+        </div>
+
+    </div>
+
+    <input type="hidden" id="hd-has-incomplete-transfer" th:value="${apovolVO.speiFlowVO.hasIncompleteSPEI}"/>
+
+    <input type="hidden" id="view" value="create-transfer-spei" />
+
+</th:block>
+
+</body>
+</html>

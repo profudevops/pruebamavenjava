@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<th:block tiles:fragment="content">
+
+    <th:block th:if="${apovolVO.contributionFlowVO.currentContributionVO.selectedType == 0}">
+
+        <th:block th:if="not ${apovolVO.contributionFlowVO.recurrent.accounts.isEmpty()}">
+
+            <span class="error-label"></span>
+            <span class="label-input">Cuenta Bancaria</span>
+            <select id="sel-account" class="full validation" name="contributionFlowVO.currentContributionVO.selectedAccount"
+                    data-validate-required="required">
+                <option value="0">Selecciona una cuenta</option>
+                <option th:each="account: ${apovolVO.contributionFlowVO.recurrent.accounts}"
+                        th:value="${account.value.id}"
+                        th:utext="${account.value.description}"></option>
+            </select>
+
+            <p class="note-apovol">
+                Si no aparece tu cuenta bancaria es porque ya tiene una Aportación Voluntaria programada.
+            </p>
+
+            <p>¿Deseas agregar otra cuenta bancaria?</p>
+
+        </th:block>
+
+    </th:block>
+
+    <th:block th:if="${apovolVO.contributionFlowVO.currentContributionVO.selectedType == 1}">
+
+        <th:block th:if="not ${apovolVO.contributionFlowVO.once.accounts.isEmpty()}">
+
+            <span class="error-label"></span>
+            <span class="label-input">Cuenta Bancaria</span>
+            <select id="sel-account" class="full validation" name="contributionFlowVO.currentContributionVO.selectedAccount"
+                    data-validate-required="required">
+                <option value="0">Selecciona una cuenta</option>
+                <option th:each="account: ${apovolVO.contributionFlowVO.once.accounts}"
+                        th:value="${account.value.id}"
+                        th:utext="${account.value.description}"></option>
+            </select>
+
+            <p class="note-apovol">
+                Si no aparece tu cuenta bancaria es porque ya tiene una Aportación Voluntaria programada.
+            </p>
+
+            <p>¿Deseas agregar otra cuenta bancaria?</p>
+
+        </th:block>
+
+    </th:block>
+
+    <button id="btn-add-account" class="yellow btn-step-accordion"
+            data-step="next"
+            data-event-id="loadAccountStep"
+            data-fragment-container="bank-account"
+            data-fragment-render="bank-account">Agregar cuenta</button>
+
+    <th:block th:if="${apovolVO.contributionFlowVO.currentContributionVO.selectedType == 0}">
+        <th:block th:if="${apovolVO.contributionFlowVO.recurrent.accounts.isEmpty()}">
+            <p>
+                <a id="tooltip-no-account">No aparece mi cuenta bancaria</a>
+            </p>
+            <p class="tooltip-no-account small-text display-none">Si no aparece tu cuenta bancaria es porque ya tienes una Aportación Voluntarias programada en dicha cuenta.</p>
+        </th:block>
+    </th:block>
+
+    <th:block th:if="${apovolVO.contributionFlowVO.currentContributionVO.selectedType == 1}">
+        <th:block th:if="${apovolVO.contributionFlowVO.once.accounts.isEmpty()}">
+            <p>
+                <a id="tooltip-no-account">No aparece mi cuenta bancaria</a>
+            </p>
+            <p class="tooltip-no-account small-text display-none">Si no aparece tu cuenta bancaria es porque ya tienes una Aportación Voluntarias programada en dicha cuenta.</p>
+        </th:block>
+    </th:block>
+
+    <div id="accordion-error-flow" th:attr="data-json=${exceptionVO}"></div>
+
+</th:block>
+
+</body>
+</html>

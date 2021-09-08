@@ -1,0 +1,79 @@
+//
+// _table.scss
+//
+// It reflects the styles for table elements
+//
+
+// Table
+.table {
+    table-layout: fixed;
+    margin-bottom: rem(50px);
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+
+    thead {
+        th {
+            border: 1px solid $blue;
+            border-left: none;
+            color: $semi-black;
+            font-size: rem(14px);
+            font-weight: 400;
+            vertical-align: middle;
+
+            &:first-child {
+                border-left: 1px solid $blue;
+            }
+        }
+
+    }
+
+    tbody {
+        tr {
+            &:nth-child(even) {
+                background-color: $bg-grey-table;
+            }
+        }
+    }
+
+    td {
+        word-break: break-word;
+        padding: rem(20px 10px);
+        color: $light-grey;
+        font-size: rem(14px);
+        font-weight: 300;
+        vertical-align: middle;
+        border: 1px solid $border-grey;
+    }
+
+    .blue-cell {
+        font-size: rem(14px);
+        color: $blue;
+    }
+
+    .without-light {
+        font-weight: 400;
+    }
+}
+
+.header-table {
+    border: 1px solid $blue;
+    border-bottom: 0px;
+    padding: rem(14px);
+
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+        color: $semi-black;
+        font-size: rem(16px);
+        font-weight: bold;
+        margin: 0px;
+    }
+
+    .actions {
+
+    }
+}

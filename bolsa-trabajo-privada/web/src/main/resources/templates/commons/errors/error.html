@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello World</title>
+
+</head>
+<body>
+
+<div class="content" tiles:fragment="fragment">
+
+    <h1 class="text-center">Ha ocurrido un error</h1>
+
+    <h2 class="text-center">Lo sentimos, por el momento no podemos atenderte, por favor inténtalo más tarde.</h2>
+
+    <div class="text-center">
+        <img class="img-building" th:src="@{/statics/images/assets/building.png}" title="error" alt="error" />
+    </div>
+
+    <p>&nbsp;</p>
+
+    <p class="text-center">
+        <button class="normal" id="btn-error-back">Regresar</button>
+    </p>
+
+    <input type="hidden" id="view" value="error" />
+
+</div>
+
+</body>
+</html>
